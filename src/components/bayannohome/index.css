@@ -1,0 +1,6 @@
+.bayanno-home-bg-container {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
