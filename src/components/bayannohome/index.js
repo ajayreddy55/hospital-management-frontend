@@ -6,11 +6,16 @@ import { Link } from "react-router-dom";
 import { VscTriangleDown } from "react-icons/vsc";
 
 import welcomeImage from "../../assets/welcome-home-image.png";
+import anestheticsImage from "../../assets/anesthetics-image.png";
+import cardiologyImage from "../../assets/cardialogy-image.png";
+import gastroenterologyImage from "../../assets/gastroenterology-image.png";
+import doctorsProfileIcon from "../../assets/doctors-profile-icon.jpg";
 
 import Navbar from "../navbar";
 import "./index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "../footer";
 
 const BayannoHome = () => {
   const settings = {
@@ -180,7 +185,240 @@ const BayannoHome = () => {
             <VscTriangleDown className="bayanno-home-triangle-icon-services" />
           </div>
         </section>
+        <section className="bayanno-home-services-content-container">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 col-md-6 mt-2 mb-2">
+                <div className="mr-2">
+                  <h3 className="bayanno-home-services-content-heading">
+                    High quality service
+                  </h3>
+                  <p className="bayanno-home-services-content-heading-text">
+                    It is important to take care of the patient, to be followed
+                    by the patient, but it will happen at such a time that there
+                    is a lot of work and pain.
+                  </p>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 mt-2 mb-2">
+                <div className="mr-2">
+                  <h3 className="bayanno-home-services-content-heading">
+                    Modern hospital and technology
+                  </h3>
+                  <p className="bayanno-home-services-content-heading-text">
+                    It is important to take care of the patient, to be followed
+                    by the patient, but it will happen at such a time that there
+                    is a lot of work and pain.
+                  </p>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 mt-2 mb-2">
+                <div className="mr-2 ml-md-2">
+                  <h3 className="bayanno-home-services-content-heading">
+                    Ready for intervention
+                  </h3>
+                  <p className="bayanno-home-services-content-heading-text">
+                    It is important to take care of the patient, to be followed
+                    by the patient, but it will happen at such a time that there
+                    is a lot of work and pain.
+                  </p>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 mt-2 mb-2">
+                <div className="mr-2 ml-md-2">
+                  <h3 className="bayanno-home-services-content-heading">
+                    Specialist consulting for health problems
+                  </h3>
+                  <p className="bayanno-home-services-content-heading-text">
+                    It is important to take care of the patient, to be followed
+                    by the patient, but it will happen at such a time that there
+                    is a lot of work and pain.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bayanno-home-departments-container">
+          <div className="container">
+            <div className="row mb-3">
+              <div className="col-12">
+                <h2 className="bayanno-home-departments-heading">
+                  Departments
+                </h2>
+              </div>
+            </div>
+            <div className="row mt-3 mb-3">
+              <div className="col-12 col-md-3 mt-2 mb-2">
+                <div className="bayanno-home-departments-card mr-2">
+                  <Link className="bayanno-home-departments-link-item">
+                    <img
+                      alt="anesthetics"
+                      src={anestheticsImage}
+                      className="bayanno-home-departments-image"
+                    />
+                    <p className="bayanno-home-departments-name">Anesthetics</p>
+                  </Link>
+                </div>
+              </div>
+              <div className="col-12 col-md-3 mt-2 mb-2">
+                <div className="bayanno-home-departments-card mr-2">
+                  <Link className="bayanno-home-departments-link-item">
+                    <img
+                      alt="cardiology"
+                      src={cardiologyImage}
+                      className="bayanno-home-departments-image"
+                    />
+                    <p className="bayanno-home-departments-name">Cardiology</p>
+                  </Link>
+                </div>
+              </div>
+              <div className="col-12 col-md-3 mt-2 mb-2">
+                <div className="bayanno-home-departments-card mr-2">
+                  <Link className="bayanno-home-departments-link-item">
+                    <img
+                      alt="gastroenterology"
+                      src={gastroenterologyImage}
+                      className="bayanno-home-departments-image"
+                    />
+                    <p className="bayanno-home-departments-name">
+                      Gastroenterology
+                    </p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bayanno-home-doctors-container">
+          <div className="container">
+            <div className="row mb-3 mt-3">
+              <div className="col-12">
+                <h3 className="bayanno-home-doctors-heading">
+                  Our Awesome Doctors
+                </h3>
+              </div>
+            </div>
+            <div className="row mt-3 mb-3">
+              <div className="col-12 col-md-4 col-lg-3 mt-2 mb-3">
+                <div className="mr-2 d-flex flex-column w-100">
+                  <div>
+                    <img
+                      alt="doctorsProfileIcon"
+                      src={doctorsProfileIcon}
+                      className="bayanno-home-doctors-profile-icon"
+                    />
+                  </div>
+                  <div className="d-flex flex-column mt-2">
+                    <p className="bayanno-home-doctors-department">
+                      Cardiology
+                    </p>
+                    <p className="bayanno-home-doctors-name">Micheal Pewd</p>
+                    <hr className="bayanno-home-doctors-hr-line" />
+                    <div className="d-flex align-items-center">
+                      <a
+                        className="mr-2"
+                        href="https://www.facebook.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-facebook-f bayanno-home-doctors-social-icon"></i>
+                      </a>
+                      <a
+                        className="mr-2"
+                        href="https://twitter.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-twitter bayanno-home-doctors-social-icon"></i>
+                      </a>
+                      <a
+                        className="mr-2"
+                        href="https://www.google.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-google-plus-g bayanno-home-doctors-social-icon"></i>
+                      </a>
+                      <a
+                        className="mr-2"
+                        href="https://www.linkedin.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-linkedin bayanno-home-doctors-social-icon"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-4 col-lg-3 mt-2 mb-3">
+                <div className="mr-2 d-flex flex-column w-100">
+                  <div>
+                    <img
+                      alt="doctorsProfileIcon"
+                      src={doctorsProfileIcon}
+                      className="bayanno-home-doctors-profile-icon"
+                    />
+                  </div>
+                  <div className="d-flex flex-column mt-2">
+                    <p className="bayanno-home-doctors-department">
+                      Anesthetics
+                    </p>
+                    <p className="bayanno-home-doctors-name">Erich Mcbride</p>
+                    <hr className="bayanno-home-doctors-hr-line" />
+                    <div className="d-flex align-items-center">
+                      <a
+                        className="mr-2"
+                        href="https://www.facebook.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-facebook-f bayanno-home-doctors-social-icon"></i>
+                      </a>
+                      <a
+                        className="mr-2"
+                        href="https://twitter.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-twitter bayanno-home-doctors-social-icon"></i>
+                      </a>
+                      <a
+                        className="mr-2"
+                        href="https://www.google.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-google-plus-g bayanno-home-doctors-social-icon"></i>
+                      </a>
+                      <a
+                        className="mr-2"
+                        href="https://www.linkedin.com/"
+                        target="__blank"
+                      >
+                        <i class="fa-brands fa-linkedin bayanno-home-doctors-social-icon"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bayanno-home-get-touch-container">
+          <div className="container">
+            <div className="row">
+              <div className="col-12 mb-3 mt-3">
+                <h3 className="bayanno-home-get-touch-heading">
+                  Get In Touch With Our Professionals
+                </h3>
+              </div>
+              <div className="col-12 mt-3 mb-3 d-flex align-items-center justify-content-center">
+                <Link className="bayanno-home-get-touch-link-item">
+                  <p className="bayanno-home-get-touch-link-text">
+                    MAKE AN APPOINTMENT
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
+      <Footer />
     </div>
   );
 };

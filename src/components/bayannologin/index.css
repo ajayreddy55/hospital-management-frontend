@@ -1,0 +1,15 @@
+.bayanno-login-bg-container {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.bayanno-login-form-container {
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.2);
+  padding-top: 100px;
+  background-color: #0d1428;
+  height: 100%;
+}
+
+.bayanno-login-logo {
+  width: 60px;
+}
