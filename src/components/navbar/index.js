@@ -57,7 +57,13 @@ const Navbar = () => {
           <Link className="nav-link navbar-link-item">APPOINTMENT</Link>
           <Link className="nav-link navbar-link-item">BLOG</Link>
           <Link className="nav-link navbar-link-item">CONTACT</Link>
-          <Link className="nav-link navbar-link-item">LOGIN</Link>
+          <Link
+            className="nav-link navbar-link-item"
+            to={"/bayanno/login"}
+            target="__blank"
+          >
+            LOGIN
+          </Link>
         </div>
       </div>
     </nav>
