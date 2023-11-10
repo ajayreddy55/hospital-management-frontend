@@ -1,32 +1,26 @@
-.bayanno-admin-sidebar-container {
+.bayanno-admin-navbar-container {
   background-color: #2c2e3e;
-  width: 260px;
-  min-height: inherit;
+  width: 100%;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 11px;
   padding-bottom: 11px;
-  transition: all 0.5s;
-  flex-shrink: 0;
 }
 
-.bayanno-admin-sidebar-container-collapsed {
-  width: 90px;
-}
-
-.bayanno-admin-sidebar-inner-container {
+.bayanno-admin-navbar-inner-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.bayanno-admin-sidebar-logo {
+.bayanno-admin-navbar-logo {
   width: 60px;
   margin-right: 2px;
 }
 
-.bayanno-admin-menu-button-sidebar {
+.bayanno-admin-menu-button-navbar {
   background-color: rgba(69, 74, 84, 0.4);
   border: 1px solid #454a54;
   outline: none;
@@ -38,35 +32,35 @@
   border-radius: 2px;
 }
 
-.bayanno-admin-menu-button-sidebar:focus {
+.bayanno-admin-menu-button-navbar:focus {
   outline: none;
 }
 
-.bayanno-admin-menu-button-sidebar:hover {
+.bayanno-admin-menu-button-navbar:hover {
   background-color: rgba(69, 74, 84, 0.9);
 }
 
-.bayanno-admin-menu-button-icon-sidebar {
+.bayanno-admin-menu-button-icon-navbar {
   color: #eeeded;
   font-size: 22px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
 
-.bayanno-admin-details-sidebar-container {
+.bayanno-admin-details-navbar-container {
   border-top: 1px solid #454a54;
   display: flex;
   align-items: center;
 }
 
-.bayanno-admin-sidebar-profile-icon {
+.bayanno-admin-navbar-profile-icon {
   width: 54px;
   border: 4px solid rgba(255, 255, 255, 0.11);
   margin-right: 15px;
   border-radius: 50%;
 }
 
-.bayanno-admin-sidebar-profile-welcome-text {
+.bayanno-admin-navbar-profile-welcome-text {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 17px;
@@ -75,7 +69,7 @@
   margin-bottom: 2px;
 }
 
-.bayanno-admin-sidebar-profile-name {
+.bayanno-admin-navbar-profile-name {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 20px;
@@ -84,12 +78,12 @@
   margin-bottom: 5px;
 }
 
-.bayanno-admin-sidebar-menu-container {
+.bayanno-admin-navbar-menu-container {
   display: flex;
   flex-direction: column;
 }
 
-.bayanno-admin-sidebar-menu-item-container {
+.bayanno-admin-navbar-menu-item-container {
   padding-top: 14px;
   padding-bottom: 10px;
   padding-left: 28px;
@@ -97,22 +91,22 @@
   text-decoration: none;
 }
 
-.bayanno-admin-sidebar-menu-item-container:hover {
+.bayanno-admin-navbar-menu-item-container:hover {
   text-decoration: none;
   background-color: #292b3a;
 }
 
-.bayanno-admin-sidebar-menu-item-container-active {
+.bayanno-admin-navbar-menu-item-container-active {
   background-color: #292b3a;
 }
 
-.bayanno-admin-sidebar-menu-item-icon {
+.bayanno-admin-navbar-menu-item-icon {
   color: #525672;
   margin-right: 15px;
   font-size: 15px;
 }
 
-.bayanno-admin-sidebar-menu-item-text {
+.bayanno-admin-navbar-menu-item-text {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
