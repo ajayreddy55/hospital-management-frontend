@@ -5,6 +5,7 @@ import BayannoHome from "./components/bayannohome";
 import BayannoLogin from "./components/bayannologin";
 import BayannoSignUp from "./components/bayannosignup";
 import AdminDashboard from "./components/adminpage/dashboardpage";
+import AdminDepartment from "./components/adminpage/departmentpage";
 
 const App = () => {
   return (
@@ -16,6 +17,11 @@ const App = () => {
         exact
         path="/bayanno/admin/dashboard"
         element={<AdminDashboard />}
+      />
+      <Route
+        exact
+        path="/bayanno/admin/department"
+        element={<AdminDepartment />}
       />
     </Routes>
   );

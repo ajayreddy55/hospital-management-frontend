@@ -5,3 +5,136 @@
 .bayanno-admin-height-container {
   min-height: inherit;
 }
+
+.bayanno-admin-main-content-container-dashboard {
+  flex-grow: 1;
+  height: inherit;
+  padding: 22px;
+}
+
+.bayanno-admin-dashboard-main-heading-icon {
+  color: #818da1;
+  font-size: 21px;
+  margin-right: 5px;
+}
+
+.bayanno-admin-dashboard-main-heading-text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  color: #818da1;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+
+.bayanno-admin-dashboard-card-link-item {
+  text-decoration: none;
+  width: 100%;
+  min-height: 100%;
+}
+
+.bayanno-admin-dashboard-card-link-item:hover {
+  text-decoration: none;
+}
+
+.bayanno-admin-dashboard-card {
+  width: 100%;
+  min-height: inherit;
+  background-color: #ffffff;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.11);
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bayanno-admin-dashboard-card:hover {
+  background-color: #c7c6c615;
+}
+
+.bayanno-admin-dashboard-card-doctor {
+  color: #303641;
+}
+
+.bayanno-admin-dashboard-card .bayanno-admin-dashboard-card-icon-container {
+  position: absolute;
+  bottom: -8px;
+  right: 5px;
+  z-index: 1;
+  margin: 0px;
+  padding: 0px;
+}
+
+.bayanno-admin-dashboard-card-icon {
+  color: #f2f2f2;
+  font-size: 100px;
+  vertical-align: bottom;
+  margin: 0px;
+  padding: 0px;
+}
+
+.bayanno-admin-dashboard-card-stats-container {
+  position: relative;
+  z-index: 5;
+}
+
+.bayanno-admin-dashboard-card-number {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.bayanno-admin-dashboard-card-text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.bayanno-admin-dashboard-card-patient {
+  color: #f56954;
+}
+
+.bayanno-admin-dashboard-card-nurse {
+  color: #00c0ef;
+}
+
+.bayanno-admin-dashboard-card-pharmacist {
+  color: #0073b7;
+}
+
+.bayanno-admin-dashboard-card-labaratorist {
+  color: #00b29e;
+}
+
+.bayanno-admin-dashboard-card-accountant {
+  color: #ba79cb;
+}
+
+.bayanno-admin-dashboard-card-receptionist {
+  color: #ec3b83;
+}
+
+.bayanno-admin-dashboard-card-payment {
+  color: #ffa812;
+}
+
+.bayanno-admin-dashboard-card-medicine {
+  color: #00a65a;
+}
+
+.bayanno-admin-dashboard-card-operation {
+  color: #6c541e;
+}
+
+.bayanno-admin-dashboard-card-birth {
+  color: #701c1c;
+}
+
+.bayanno-admin-dashboard-card-death {
+  color: rgb(190, 4, 4);
+}
