@@ -36,7 +36,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-doctor">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-user-md bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-user-md bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-patient">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-user bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-user bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -70,7 +70,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-nurse">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-plus-square bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-plus-square bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-pharmacist">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-medkit bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-medkit bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -104,7 +104,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-labaratorist">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-user bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-user bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -121,7 +121,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-accountant">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-money-bill-1 bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-money-bill-1 bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -138,7 +138,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-receptionist">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-plus-square bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-plus-square bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -155,7 +155,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-payment">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-regular fa-rectangle-list bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-regular fa-rectangle-list bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -172,7 +172,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-medicine">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-medkit bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-medkit bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -189,7 +189,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-operation">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-wheelchair bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-wheelchair bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -206,7 +206,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-birth">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-brands fa-github-alt bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-brands fa-github-alt bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">
@@ -223,7 +223,7 @@ const AdminDashboard = () => {
                     <Link className="bayanno-admin-dashboard-card-link-item mr-2">
                       <div className="bayanno-admin-dashboard-card bayanno-admin-dashboard-card-death">
                         <div className="bayanno-admin-dashboard-card-icon-container">
-                          <i class="fa-solid fa-ban bayanno-admin-dashboard-card-icon"></i>
+                          <i className="fa-solid fa-ban bayanno-admin-dashboard-card-icon"></i>
                         </div>
                         <div className="bayanno-admin-dashboard-card-stats-container">
                           <p className="bayanno-admin-dashboard-card-number">

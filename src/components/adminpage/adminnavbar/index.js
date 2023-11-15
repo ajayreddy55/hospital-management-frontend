@@ -44,59 +44,59 @@ const AdminNavbar = () => {
         <div className="collapse" id="adminNavMenu">
           <div className="bayanno-admin-navbar-menu-container">
             <Link className="bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active">
-              <i class="fa-solid fa-desktop bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-desktop bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Dashboard
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-sitemap bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-sitemap bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Department
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-user-md bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-user-md bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Doctor
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Patient
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-plus-square bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-plus-square bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">Nurse</span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-medkit bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-medkit bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Pharmacist
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Laboratorist
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-money-bill-1 bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-money-bill-1 bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Accountant
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-plus-square bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-plus-square bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Receptionist
               </span>
             </Link>
             <Link className="bayanno-admin-navbar-menu-item-container">
-              <i class="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
+              <i className="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Account
               </span>

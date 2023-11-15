@@ -40,7 +40,7 @@ const AdminSidebar = () => {
             className="bayanno-admin-menu-button-sidebar"
             onClick={toggleTheSidebar}
           >
-            <i class="fa-solid fa-bars bayanno-admin-menu-button-icon-sidebar"></i>
+            <i className="fa-solid fa-bars bayanno-admin-menu-button-icon-sidebar"></i>
           </button>
         </div>
         <div className="bayanno-admin-details-sidebar-container">
@@ -63,7 +63,7 @@ const AdminSidebar = () => {
         <div>
           <div className="bayanno-admin-sidebar-menu-container">
             <Link className="bayanno-admin-sidebar-menu-item-container bayanno-admin-sidebar-menu-item-container-active">
-              <i class="fa-solid fa-desktop bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-desktop bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -71,7 +71,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-sitemap bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-sitemap bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -79,7 +79,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-user-md bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-user-md bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -87,7 +87,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-user bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-user bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -95,7 +95,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-plus-square bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-plus-square bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -103,7 +103,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-medkit bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-medkit bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -111,7 +111,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-user bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-user bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -119,7 +119,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-money-bill-1 bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-money-bill-1 bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -127,7 +127,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-plus-square bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-plus-square bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >
@@ -135,7 +135,7 @@ const AdminSidebar = () => {
               </span>
             </Link>
             <Link className="bayanno-admin-sidebar-menu-item-container">
-              <i class="fa-solid fa-user bayanno-admin-sidebar-menu-item-icon"></i>
+              <i className="fa-solid fa-user bayanno-admin-sidebar-menu-item-icon"></i>
               <span
                 className={`bayanno-admin-sidebar-menu-item-text ${sidebarNameToggle}`}
               >

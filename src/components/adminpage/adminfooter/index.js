@@ -11,7 +11,7 @@ const AdminFooter = () => {
       <div className="col-12 mt-1 mb-3">
         <div className="d-flex align-items-center justify-content-between">
           <div className="d-flex align-items-center">
-            <i class="fa-regular fa-copyright bayanno-admin-footer-copyright-icon"></i>
+            <i className="fa-regular fa-copyright bayanno-admin-footer-copyright-icon"></i>
             <p className="bayanno-admin-footer-copyright-text">
               2017{" "}
               <span className="bayanno-admin-footer-copyright-hospital-name">

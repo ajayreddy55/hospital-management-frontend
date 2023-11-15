@@ -13,18 +13,18 @@ const AdminHeader = () => {
       <div className="col-12 mt-2 mb-3">
         <div className="bayanno-admin-header-logout-profile-container">
           <Link className="bayanno-admin-header-profile-container mt-2">
-            <i class="fa-solid fa-circle-user bayanno-admin-header-profile-icon"></i>
+            <i className="fa-solid fa-circle-user bayanno-admin-header-profile-icon"></i>
             <span className="bayanno-admin-header-profile-text">admin</span>
           </Link>
           <div className="d-flex align-items-center mt-2">
             <Link className="bayanno-admin-header-profile-container">
-              <i class="fa-solid fa-earth-africa bayanno-admin-header-profile-icon"></i>
+              <i className="fa-solid fa-earth-africa bayanno-admin-header-profile-icon"></i>
               <span className="bayanno-admin-header-profile-text">Website</span>
             </Link>
             <div className="bayanno-admin-header-ver-line"></div>
             <button className="bayanno-admin-header-logout-button">
               <span className="bayanno-admin-header-logout-text">Logout</span>
-              <i class="fa-solid fa-right-from-bracket bayanno-admin-header-logout-icon"></i>
+              <i className="fa-solid fa-right-from-bracket bayanno-admin-header-logout-icon"></i>
             </button>
           </div>
         </div>
