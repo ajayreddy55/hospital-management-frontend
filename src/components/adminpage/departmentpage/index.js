@@ -9,7 +9,18 @@ import cardiologyImage from "../../../assets/cardialogy-image.png";
 import Popup from "reactjs-popup";
 import addSelectImage from "../../../assets/select-256x256-image.png";
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import DepartmentPageRows from "../departmentrows";
+import { Hourglass } from "react-loader-spinner";
+// import axios from "axios";
+
+const apiConstants = {
+  initial: "INITIAL",
+  inProgress: "IN_PROGRESS",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
 
 const AdminDepartment = () => {
   const [addDepartmentName, setAddDepartmentName] = useState({
@@ -30,8 +41,63 @@ const AdminDepartment = () => {
   const [addDepartmentImageToDisplay, setAddDepartmentImageToDisplay] =
     useState("");
 
+  const [addDepartmentServerMsg, setAddDepartmentServerMsg] = useState({
+    serverMsg: "",
+    textColor: "",
+  });
+
+  const [departmentsObject, setDepartmentsObject] = useState({
+    departments: [],
+    apiStatus: apiConstants.initial,
+  });
+
+  useEffect(() => {
+    getDepartmentsList();
+    //eslint-disable-next-line
+  }, []);
+
+  const getDepartmentsList = async () => {
+    setDepartmentsObject((prevState) => ({
+      ...prevState,
+      departments: [],
+      apiStatus: apiConstants.inProgress,
+    }));
+
+    const url = "http://localhost:5000/api/all-departments";
+    const jwtToken = Cookies.get("hospital-jwt-token");
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    const departmentsRes = await fetch(url, options);
+
+    if (departmentsRes.ok) {
+      const departmentsResJson = await departmentsRes.json();
+      setDepartmentsObject((prevState) => ({
+        ...prevState,
+        departments: departmentsResJson.departmentsList,
+        apiStatus: apiConstants.success,
+      }));
+    } else {
+      setDepartmentsObject((prevState) => ({
+        ...prevState,
+        departments: [],
+        apiStatus: apiConstants.failure,
+      }));
+    }
+  };
+
   const addDepartmentChangeName = (event) => {
     const nameInput = event.target.value;
+
+    setAddDepartmentServerMsg((prevState) => ({
+      ...prevState,
+      serverMsg: "",
+      textColor: "",
+    }));
 
     if (nameInput === "") {
       setAddDepartmentName((prevState) => ({
@@ -51,6 +117,12 @@ const AdminDepartment = () => {
   const addDepartmentChangeDescription = (event) => {
     const descriptionInput = event.target.value;
 
+    setAddDepartmentServerMsg((prevState) => ({
+      ...prevState,
+      serverMsg: "",
+      textColor: "",
+    }));
+
     if (descriptionInput === "") {
       setAddDepartmentDescription((prevState) => ({
         ...prevState,
@@ -67,9 +139,15 @@ const AdminDepartment = () => {
   };
 
   const addDepartmentChangeIcon = (event) => {
-    const iconInput = event.target.files;
+    const iconInput = event.target.files[0];
 
-    if (iconInput === "") {
+    setAddDepartmentServerMsg((prevState) => ({
+      ...prevState,
+      serverMsg: "",
+      textColor: "",
+    }));
+
+    if (!iconInput) {
       setAddDepartmentImageToDisplay("");
       setAddDepartmentIcon((prevState) => ({
         ...prevState,
@@ -77,13 +155,13 @@ const AdminDepartment = () => {
         iconRequiredText: "*Required",
       }));
     } else {
-      setAddDepartmentImageToDisplay(
-        URL.createObjectURL(event.target.files[0])
-      );
+      const imageUrl = URL.createObjectURL(event.target.files[0]);
+
+      setAddDepartmentImageToDisplay(imageUrl);
 
       setAddDepartmentIcon((prevState) => ({
         ...prevState,
-        icon: iconInput,
+        icon: imageUrl,
         iconRequiredText: "",
       }));
     }
@@ -98,6 +176,290 @@ const AdminDepartment = () => {
       icon: "",
       iconRequiredText: "*Required",
     }));
+  };
+
+  const addNewDepartmentInServer = async () => {
+    // const formData = new FormData();
+    // formData.append("file", addDepartmentIcon.icon);
+    // axios
+    //   .post("http://localhost:5000/upload/images", formData)
+    //   .then(() => {})
+    //   .catch((error) => console.log(error));
+
+    const url = "http://localhost:5000/api/add-department";
+    const jwtToken = Cookies.get("hospital-jwt-token");
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      body: JSON.stringify({
+        name: addDepartmentName.name,
+        icon: addDepartmentIcon.icon,
+        departmentDescription: addDepartmentDescription.description,
+      }),
+    };
+
+    const addDepartmentRes = await fetch(url, options);
+
+    if (addDepartmentRes.ok) {
+      const addDepartmentResJson = await addDepartmentRes.json();
+      setAddDepartmentServerMsg((prevState) => ({
+        ...prevState,
+        serverMsg: addDepartmentResJson.message,
+        textColor:
+          "bayanno-admin-department-add-popup-content-card-server-msg-success",
+      }));
+      setAddDepartmentName((prevState) => ({
+        ...prevState,
+        name: "",
+        nameRequiredText: "",
+      }));
+      setAddDepartmentDescription((prevState) => ({
+        ...prevState,
+        description: "",
+        descriptionRequiredText: "",
+      }));
+      const input = document.getElementById("addDepartmentIconInput");
+      input.value = null;
+      setAddDepartmentImageToDisplay("");
+      setAddDepartmentIcon((prevState) => ({
+        ...prevState,
+        icon: "",
+        iconRequiredText: "",
+      }));
+      getDepartmentsList();
+    } else {
+      const addDepartmentResJson = await addDepartmentRes.json();
+      setAddDepartmentServerMsg((prevState) => ({
+        ...prevState,
+        serverMsg: addDepartmentResJson.message,
+        textColor: "",
+      }));
+    }
+  };
+
+  const validateAddDepartmentForm = () => {
+    if (addDepartmentName.name === "") {
+      setAddDepartmentName((prevState) => ({
+        ...prevState,
+        name: "",
+        nameRequiredText: "*Required",
+      }));
+    } else if (addDepartmentDescription.description === "") {
+      setAddDepartmentDescription((prevState) => ({
+        ...prevState,
+        description: "",
+        descriptionRequiredText: "*Required",
+      }));
+    } else if (addDepartmentIcon.icon === "") {
+      setAddDepartmentImageToDisplay("");
+      setAddDepartmentIcon((prevState) => ({
+        ...prevState,
+        icon: "",
+        iconRequiredText: "*Required",
+      }));
+    } else {
+      addNewDepartmentInServer();
+    }
+  };
+
+  const submitAddDepartmentForm = (event) => {
+    event.preventDefault();
+    validateAddDepartmentForm();
+  };
+
+  const closeAddDepartmentPopup = () => {
+    setAddDepartmentServerMsg((prevState) => ({
+      ...prevState,
+      serverMsg: "",
+      textColor: "",
+    }));
+    setAddDepartmentName((prevState) => ({
+      ...prevState,
+      name: "",
+      nameRequiredText: "",
+    }));
+    setAddDepartmentDescription((prevState) => ({
+      ...prevState,
+      description: "",
+      descriptionRequiredText: "",
+    }));
+    const input = document.getElementById("addDepartmentIconInput");
+    input.value = null;
+    setAddDepartmentImageToDisplay("");
+    setAddDepartmentIcon((prevState) => ({
+      ...prevState,
+      icon: "",
+      iconRequiredText: "",
+    }));
+  };
+
+  const noDataView = () => {
+    return (
+      <div className="bayanno-admin-departments-table-no-data-view-container pt-4 pb-4">
+        <h3 className="bayanno-admin-departments-table-no-data-view-text">
+          No Data Found
+        </h3>
+      </div>
+    );
+  };
+
+  const renderDepartmentsList = () => {
+    if (departmentsObject.departments.length === 0) {
+      return noDataView();
+    }
+
+    return (
+      <>
+        <div className="row bayanno-admin-department-search-pages-container">
+          <div className="col-12 p-0 col-lg-3">
+            <div className="bayanno-admin-department-items-per-page-container">
+              <select className="bayanno-admin-department-items-select-container">
+                <option value={"10"} selected>
+                  10
+                </option>
+                <option value={"25"}>25</option>
+                <option value={"50"}>50</option>
+                <option value={"100"}>100</option>
+              </select>
+              <label className="bayanno-admin-department-items-per-page-text">
+                Per Page
+              </label>
+            </div>
+          </div>
+          <div className="col-12 col-lg-9 p-0">
+            <div className="d-flex align-items-center p-3 justify-content-lg-end">
+              <div className="bayanno-admin-department-print-container mr-3">
+                <div className="bayanno-admin-department-print-extensions-container">
+                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
+                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
+                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
+                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
+                </div>
+                <button className="bayanno-admin-department-print-button">
+                  Print
+                </button>
+              </div>
+              <div className="ml-3">
+                <input
+                  className="bayanno-admin-department-search-bar"
+                  type="search"
+                  placeholder="Search"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 p-0">
+            <table className="bayanno-admin-department-table-container">
+              <thead>
+                <tr>
+                  <th className="bayanno-admin-department-table-header-icon">
+                    Icon
+                  </th>
+                  <th className="bayanno-admin-department-table-header-name">
+                    Name
+                  </th>
+                  <th className="bayanno-admin-department-table-header-des">
+                    Description
+                  </th>
+                  <th className="bayanno-admin-department-table-header-options">
+                    Options
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {departmentsObject.departments.map((eachObject) => (
+                  <DepartmentPageRows
+                    key={eachObject._id}
+                    eachObject={eachObject}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="row d-flex align-items-center">
+          <div className="col-12 col-lg-3">
+            <div className="bayanno-admin-department-showing-items-container">
+              <span className="bayanno-admin-department-showing-items-text">
+                Showing 1 to 2 of 2
+              </span>
+            </div>
+          </div>
+          <div className="col-12 col-lg-9">
+            <div className="bayanno-admin-department-pagination-container pt-3">
+              <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                  <li className="page-item">
+                    <a className="page-link" href="#1" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li className="page-item active">
+                    <a className="page-link" href="#1">
+                      1
+                    </a>
+                  </li>
+                  <li className="page-item">
+                    <a className="page-link" href="#1" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const renderLoaderView = () => {
+    return (
+      <div className="bayanno-admin-departments-table-no-data-view-container pt-4 pb-4">
+        <Hourglass
+          visible={true}
+          height="54"
+          width="54"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={["#306cce", "#72a1ed"]}
+        />
+      </div>
+    );
+  };
+
+  const renderFailureView = () => {
+    return (
+      <div className="bayanno-admin-departments-table-no-data-view-container pt-4 pb-4">
+        <h3 className="bayanno-admin-departments-table-no-data-view-text">
+          Oops! Something Went Wrong.
+        </h3>
+      </div>
+    );
+  };
+
+  const checkingWhatToRender = () => {
+    switch (departmentsObject.apiStatus) {
+      case apiConstants.success:
+        return renderDepartmentsList();
+
+      case apiConstants.inProgress:
+        return renderLoaderView();
+
+      case apiConstants.failure:
+        return renderFailureView();
+
+      default:
+        return null;
+    }
   };
 
   return (
@@ -149,7 +511,10 @@ const AdminDepartment = () => {
                             <button
                               type="button"
                               className="bayanno-admin-department-add-popup-head-close-button"
-                              onClick={() => close()}
+                              onClick={() => {
+                                closeAddDepartmentPopup();
+                                close();
+                              }}
                             >
                               <i class="fa-solid fa-xmark bayanno-admin-department-add-popup-head-cross-icon"></i>
                             </button>
@@ -159,7 +524,10 @@ const AdminDepartment = () => {
                               <h1 className="bayanno-admin-department-add-popup-content-heading mt-3">
                                 Add Department
                               </h1>
-                              <form className="d-flex flex-column mt-4 mb-3">
+                              <form
+                                className="d-flex flex-column mt-4 mb-3"
+                                onSubmit={submitAddDepartmentForm}
+                              >
                                 <div className="bayanno-admin-department-add-popup-content-card-main-container mt-2 mb-2">
                                   <label
                                     className="bayanno-admin-department-add-popup-content-card-label mr-3"
@@ -267,7 +635,7 @@ const AdminDepartment = () => {
                                   </div>
                                 )}
 
-                                <div className="mt-2 mb-2 d-flex align-items-center justify-content-md-center">
+                                <div className="mt-2 mb-2 d-flex align-items-md-center justify-content-center flex-column">
                                   <button
                                     className="bayanno-admin-department-add-popup-content-card-save-image-button mr-3"
                                     type="submit"
@@ -275,6 +643,11 @@ const AdminDepartment = () => {
                                     <i class="fa-solid fa-check mr-1"></i>
                                     <span className="ml-1">Save</span>
                                   </button>
+                                  <p
+                                    className={`bayanno-admin-department-add-popup-content-card-server-msg ${addDepartmentServerMsg.textColor}`}
+                                  >
+                                    {addDepartmentServerMsg.serverMsg}
+                                  </p>
                                 </div>
                               </form>
                             </div>
@@ -283,7 +656,10 @@ const AdminDepartment = () => {
                             <button
                               className="bayanno-admin-department-add-popup-content-card-close-button mr-3"
                               type="button"
-                              onClick={() => close()}
+                              onClick={() => {
+                                closeAddDepartmentPopup();
+                                close();
+                              }}
                             >
                               Close
                             </button>
@@ -297,219 +673,7 @@ const AdminDepartment = () => {
                   <div className="col-12 mt-3">
                     <div className="bayanno-admin-department-table-wrapper">
                       <div className="container-fluid">
-                        <div className="row bayanno-admin-department-search-pages-container">
-                          <div className="col-12 p-0 col-lg-3">
-                            <div className="bayanno-admin-department-items-per-page-container">
-                              <select className="bayanno-admin-department-items-select-container">
-                                <option value={"10"} selected>
-                                  10
-                                </option>
-                                <option value={"25"}>25</option>
-                                <option value={"50"}>50</option>
-                                <option value={"100"}>100</option>
-                              </select>
-                              <label className="bayanno-admin-department-items-per-page-text">
-                                Per Page
-                              </label>
-                            </div>
-                          </div>
-                          <div className="col-12 col-lg-9 p-0">
-                            <div className="d-flex align-items-center p-3 justify-content-lg-end">
-                              <div className="bayanno-admin-department-print-container mr-3">
-                                <div className="bayanno-admin-department-print-extensions-container">
-                                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
-                                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
-                                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
-                                  <IoExtensionPuzzleSharp className="bayanno-admin-department-print-extensions" />
-                                </div>
-                                <button className="bayanno-admin-department-print-button">
-                                  Print
-                                </button>
-                              </div>
-                              <div className="ml-3">
-                                <input
-                                  className="bayanno-admin-department-search-bar"
-                                  type="search"
-                                  placeholder="Search"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-12 p-0">
-                            <table className="bayanno-admin-department-table-container">
-                              <thead>
-                                <tr>
-                                  <th className="bayanno-admin-department-table-header-icon">
-                                    Icon
-                                  </th>
-                                  <th className="bayanno-admin-department-table-header-name">
-                                    Name
-                                  </th>
-                                  <th className="bayanno-admin-department-table-header-des">
-                                    Description
-                                  </th>
-                                  <th className="bayanno-admin-department-table-header-options">
-                                    Options
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td className="bayanno-admin-department-table-data">
-                                    <img
-                                      src={anestheticsImage}
-                                      alt="anestheticsImage"
-                                      className="bayanno-admin-department-table-data-icon"
-                                    />
-                                  </td>
-                                  <td className="bayanno-admin-department-table-data">
-                                    Anesthetics
-                                  </td>
-                                  <td className="bayanno-admin-department-table-data bayanno-admin-department-table-data-des">
-                                    There are many variations of passages of
-                                    Lorem Ipsum available, but the majority have
-                                    suffered alteration in some form, by
-                                    injected humour, or randomised words which
-                                    don't look even slightly believable. If you
-                                    are going to use a passage of Lorem Ipsum,
-                                    you need to be sure there isn't anything
-                                    embarrassing hidden in the middle of text.
-                                    All the Lorem Ipsum generators on the
-                                    Internet tend to repeat predefined chunks as
-                                    necessary, making this the first true
-                                    generator on the Internet. It uses a
-                                    dictionary of over 200 Latin words, combined
-                                    with a handful of model sentence structures,
-                                    to generate Lorem Ipsum which looks
-                                    reasonable. The generated Lorem Ipsum is
-                                    therefore always free from repetition,
-                                    injected humour, or non-characteristic words
-                                    etc.
-                                  </td>
-                                  <td className="bayanno-admin-department-table-data">
-                                    <div className="d-flex align-items-center flex-wrap">
-                                      <Link className="bayanno-admin-department-table-data-manage-facilities-container mt-2 mb-2 mr-2">
-                                        <i className="fa-solid fa-plus bayanno-admin-department-table-data-plus-icon"></i>
-                                        <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-                                          Manage Facilities
-                                        </span>
-                                      </Link>
-                                      <button className="bayanno-admin-department-table-data-edit-button mt-2 mb-2 mr-2">
-                                        <i className="fa-solid fa-pencil bayanno-admin-department-table-data-plus-icon"></i>
-                                        <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-                                          Edit
-                                        </span>
-                                      </button>
-                                      <button className="bayanno-admin-department-table-data-delete-button mt-2 mb-2 mr-2">
-                                        <i className="fa-regular fa-trash-can bayanno-admin-department-table-data-plus-icon"></i>
-                                        <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-                                          Delete
-                                        </span>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td className="bayanno-admin-department-table-data">
-                                    <img
-                                      src={cardiologyImage}
-                                      alt="cardiology"
-                                      className="bayanno-admin-department-table-data-icon"
-                                    />
-                                  </td>
-                                  <td className="bayanno-admin-department-table-data">
-                                    Cardiology
-                                  </td>
-                                  <td className="bayanno-admin-department-table-data bayanno-admin-department-table-data-des">
-                                    There are many variations of passages of
-                                    Lorem Ipsum available, but the majority have
-                                    suffered alteration in some form, by
-                                    injected humour, or randomised words which
-                                    don't look even slightly believable. If you
-                                    are going to use a passage of Lorem Ipsum,
-                                    you need to be sure there isn't anything
-                                    embarrassing hidden in the middle of text.
-                                    All the Lorem Ipsum generators on the
-                                    Internet tend to repeat predefined chunks as
-                                    necessary, making this the first true
-                                    generator on the Internet. It uses a
-                                    dictionary of over 200 Latin words, combined
-                                    with a handful of model sentence structures,
-                                    to generate Lorem Ipsum which looks
-                                    reasonable. The generated Lorem Ipsum is
-                                    therefore always free from repetition,
-                                    injected humour, or non-characteristic words
-                                    etc.
-                                  </td>
-                                  <td className="bayanno-admin-department-table-data">
-                                    <div className="d-flex align-items-center flex-wrap">
-                                      <Link className="bayanno-admin-department-table-data-manage-facilities-container mt-2 mb-2 mr-2">
-                                        <i className="fa-solid fa-plus bayanno-admin-department-table-data-plus-icon"></i>
-                                        <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-                                          Manage Facilities
-                                        </span>
-                                      </Link>
-                                      <button className="bayanno-admin-department-table-data-edit-button mt-2 mb-2 mr-2">
-                                        <i className="fa-solid fa-pencil bayanno-admin-department-table-data-plus-icon"></i>
-                                        <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-                                          Edit
-                                        </span>
-                                      </button>
-                                      <button className="bayanno-admin-department-table-data-delete-button mt-2 mb-2 mr-2">
-                                        <i className="fa-regular fa-trash-can bayanno-admin-department-table-data-plus-icon"></i>
-                                        <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-                                          Delete
-                                        </span>
-                                      </button>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <div className="row d-flex align-items-center">
-                          <div className="col-12 col-lg-3">
-                            <div className="bayanno-admin-department-showing-items-container">
-                              <span className="bayanno-admin-department-showing-items-text">
-                                Showing 1 to 2 of 2
-                              </span>
-                            </div>
-                          </div>
-                          <div className="col-12 col-lg-9">
-                            <div className="bayanno-admin-department-pagination-container pt-3">
-                              <nav aria-label="Page navigation example">
-                                <ul className="pagination">
-                                  <li className="page-item">
-                                    <a
-                                      className="page-link"
-                                      href="#1"
-                                      aria-label="Previous"
-                                    >
-                                      <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                  </li>
-                                  <li className="page-item active">
-                                    <a className="page-link" href="#1">
-                                      1
-                                    </a>
-                                  </li>
-                                  <li className="page-item">
-                                    <a
-                                      className="page-link"
-                                      href="#1"
-                                      aria-label="Next"
-                                    >
-                                      <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </nav>
-                            </div>
-                          </div>
-                        </div>
+                        {checkingWhatToRender()}
                       </div>
                     </div>
                   </div>
