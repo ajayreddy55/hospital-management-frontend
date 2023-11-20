@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import DepartmentPageRows from "../departmentrows";
 import { Hourglass } from "react-loader-spinner";
-// import axios from "axios";
+import axios from "axios";
 
 const apiConstants = {
   initial: "INITIAL",
@@ -161,7 +161,7 @@ const AdminDepartment = () => {
 
       setAddDepartmentIcon((prevState) => ({
         ...prevState,
-        icon: imageUrl,
+        icon: iconInput,
         iconRequiredText: "",
       }));
     }
@@ -178,14 +178,7 @@ const AdminDepartment = () => {
     }));
   };
 
-  const addNewDepartmentInServer = async () => {
-    // const formData = new FormData();
-    // formData.append("file", addDepartmentIcon.icon);
-    // axios
-    //   .post("http://localhost:5000/upload/images", formData)
-    //   .then(() => {})
-    //   .catch((error) => console.log(error));
-
+  const addDepartmentDatabase = async (image) => {
     const url = "http://localhost:5000/api/add-department";
     const jwtToken = Cookies.get("hospital-jwt-token");
 
@@ -198,7 +191,7 @@ const AdminDepartment = () => {
       },
       body: JSON.stringify({
         name: addDepartmentName.name,
-        icon: addDepartmentIcon.icon,
+        icon: image,
         departmentDescription: addDepartmentDescription.description,
       }),
     };
@@ -240,6 +233,23 @@ const AdminDepartment = () => {
         textColor: "",
       }));
     }
+  };
+
+  const addNewDepartmentInServer = () => {
+    const jwtToken = Cookies.get("hospital-jwt-token");
+    const formData = new FormData();
+    formData.append("file", addDepartmentIcon.icon);
+    axios
+      .post("http://localhost:5000/upload/images", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+      .then((response) => {
+        addDepartmentDatabase(response.data.filename);
+      })
+      .catch((error) => console.log(error));
   };
 
   const validateAddDepartmentForm = () => {
@@ -288,8 +298,6 @@ const AdminDepartment = () => {
       description: "",
       descriptionRequiredText: "",
     }));
-    const input = document.getElementById("addDepartmentIconInput");
-    input.value = null;
     setAddDepartmentImageToDisplay("");
     setAddDepartmentIcon((prevState) => ({
       ...prevState,
@@ -378,6 +386,7 @@ const AdminDepartment = () => {
                   <DepartmentPageRows
                     key={eachObject._id}
                     eachObject={eachObject}
+                    gettingDepartmentList={getDepartmentsList}
                   />
                 ))}
               </tbody>
@@ -388,7 +397,8 @@ const AdminDepartment = () => {
           <div className="col-12 col-lg-3">
             <div className="bayanno-admin-department-showing-items-container">
               <span className="bayanno-admin-department-showing-items-text">
-                Showing 1 to 2 of 2
+                Showing 1 to {departmentsObject.departments.length} of{" "}
+                {departmentsObject.departments.length}
               </span>
             </div>
           </div>
@@ -501,6 +511,7 @@ const AdminDepartment = () => {
                       }
                       modal="true"
                       className="popup-content"
+                      onClose={closeAddDepartmentPopup}
                     >
                       {(close) => (
                         <div className="bayanno-admin-department-add-popup-container">
@@ -511,10 +522,7 @@ const AdminDepartment = () => {
                             <button
                               type="button"
                               className="bayanno-admin-department-add-popup-head-close-button"
-                              onClick={() => {
-                                closeAddDepartmentPopup();
-                                close();
-                              }}
+                              onClick={close}
                             >
                               <i class="fa-solid fa-xmark bayanno-admin-department-add-popup-head-cross-icon"></i>
                             </button>
@@ -656,10 +664,7 @@ const AdminDepartment = () => {
                             <button
                               className="bayanno-admin-department-add-popup-content-card-close-button mr-3"
                               type="button"
-                              onClick={() => {
-                                closeAddDepartmentPopup();
-                                close();
-                              }}
+                              onClick={close}
                             >
                               Close
                             </button>
