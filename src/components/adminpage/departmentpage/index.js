@@ -14,6 +14,7 @@ import Cookies from "js-cookie";
 import DepartmentPageRows from "../departmentrows";
 import { Hourglass } from "react-loader-spinner";
 import axios from "axios";
+import "reactjs-popup/dist/index.css";
 
 const apiConstants = {
   initial: "INITIAL",

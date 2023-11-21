@@ -4,6 +4,7 @@ import Popup from "reactjs-popup";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
+import "reactjs-popup/dist/index.css";
 
 const DepartmentPageRows = (props) => {
   const { eachObject, gettingDepartmentList } = props;
@@ -210,6 +211,23 @@ const DepartmentPageRows = (props) => {
     validateEditDepartmentForm();
   };
 
+  const deleteTheDepartment = async () => {
+    const url = `http://localhost:5000/api/delete-department/${_id}`;
+    const jwtToken = Cookies.get("hospital-jwt-token");
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    const deleteRes = await fetch(url, options);
+
+    if (deleteRes.ok) {
+      getListAgain();
+    }
+  };
+
   const closeEditPopup = () => {
     setEditServerMsg((prevState) => ({
       ...prevState,
@@ -390,7 +408,7 @@ const DepartmentPageRows = (props) => {
                       type="submit"
                     >
                       <i class="fa-solid fa-check mr-1"></i>
-                      <span className="ml-1">Save</span>
+                      <span className="ml-1">Update</span>
                     </button>
                     <p
                       className={`bayanno-admin-department-edit-popup-content-card-server-msg ${editServerMsg.textColor}`}
@@ -416,6 +434,67 @@ const DepartmentPageRows = (props) => {
     );
   };
 
+  const deletePopup = () => {
+    const contentStyleDelete = {
+      backgroundColor: "#ffffff",
+      width: "98%",
+      maxWidth: "600px",
+      minHeight: "150px",
+      height: "200px",
+      maxHeight: "300px",
+      padding: "0px",
+    };
+
+    return (
+      <Popup
+        trigger={
+          <button className="bayanno-admin-department-table-data-delete-button mt-2 mb-2 mr-2">
+            <i className="fa-regular fa-trash-can bayanno-admin-department-table-data-plus-icon"></i>
+            <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
+              Delete
+            </span>
+          </button>
+        }
+        modal={true}
+        contentStyle={contentStyleDelete}
+        onClose={closeEditPopup}
+      >
+        {(close) => (
+          <div className="bayanno-admin-department-delete-popup-container">
+            <div className="bayanno-admin-department-delete-popup-head-container">
+              <h3 className="bayanno-admin-department-delete-popup-head-name">
+                Bayanno Hospital Management System
+              </h3>
+              <button
+                type="button"
+                className="bayanno-admin-department-delete-popup-head-close-button"
+                onClick={close}
+              >
+                <i class="fa-solid fa-xmark bayanno-admin-department-delete-popup-head-cross-icon"></i>
+              </button>
+            </div>
+            <div className="w-100 d-flex justify-content-center align-items-center flex-wrap p-3 pb-3">
+              <button
+                className="bayanno-admin-department-delete-popup-button"
+                type="button"
+                onClick={deleteTheDepartment}
+              >
+                Delete
+              </button>
+              <button
+                className="bayanno-admin-department-delete-popup-cancel-button"
+                type="button"
+                onClick={close}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+      </Popup>
+    );
+  };
+
   return (
     <tr>
       <td className="bayanno-admin-department-table-data">
@@ -431,19 +510,17 @@ const DepartmentPageRows = (props) => {
       </td>
       <td className="bayanno-admin-department-table-data">
         <div className="d-flex align-items-center flex-wrap">
-          <Link className="bayanno-admin-department-table-data-manage-facilities-container mt-2 mb-2 mr-2">
+          <Link
+            className="bayanno-admin-department-table-data-manage-facilities-container mt-2 mb-2 mr-2"
+            to={`/bayanno/admin/department_facilities/${_id}`}
+          >
             <i className="fa-solid fa-plus bayanno-admin-department-table-data-plus-icon"></i>
             <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
               Manage Facilities
             </span>
           </Link>
           {editPopup()}
-          <button className="bayanno-admin-department-table-data-delete-button mt-2 mb-2 mr-2">
-            <i className="fa-regular fa-trash-can bayanno-admin-department-table-data-plus-icon"></i>
-            <span className="bayanno-admin-department-table-data-manage-facilities ml-1">
-              Delete
-            </span>
-          </button>
+          {deletePopup()}
         </div>
       </td>
     </tr>

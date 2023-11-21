@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import "./index.css";
+import Cookies from "js-cookie";
 
 const AdminHeader = () => {
+  const navigate = useNavigate();
+
+  const logoutTheUser = () => {
+    Cookies.remove("hospital-jwt-token");
+    navigate("/bayanno/login");
+  };
+
   return (
     <div className="bayanno-admin-header-container row">
       <div className="col-12 mt-3 mb-2">
@@ -22,7 +30,10 @@ const AdminHeader = () => {
               <span className="bayanno-admin-header-profile-text">Website</span>
             </Link>
             <div className="bayanno-admin-header-ver-line"></div>
-            <button className="bayanno-admin-header-logout-button">
+            <button
+              className="bayanno-admin-header-logout-button"
+              onClick={logoutTheUser}
+            >
               <span className="bayanno-admin-header-logout-text">Logout</span>
               <i className="fa-solid fa-right-from-bracket bayanno-admin-header-logout-icon"></i>
             </button>

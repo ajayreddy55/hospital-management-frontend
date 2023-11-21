@@ -1,8 +1,8 @@
-.bayanno-admin-department-table-container tbody tr:nth-child(odd) {
+.bayanno-admin-facility-table-container tbody tr:nth-child(odd) {
   background-color: #f8f8f8;
 }
 
-.bayanno-admin-department-table-data {
+.bayanno-admin-facility-table-data {
   border: 1px solid #ebebeb;
   padding: 8px;
   font-size: 16px;
@@ -11,28 +11,11 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.bayanno-admin-department-table-data-icon {
+.bayanno-admin-facility-table-data-icon {
   width: 40px;
 }
 
-.bayanno-admin-department-table-data-manage-facilities-container {
-  text-decoration: none;
-  background-color: #757575;
-  border: 1px solid transparent;
-  color: #ffffff;
-  border-radius: 60px;
-  font-size: 12px;
-  padding: 5px 10px;
-  font-weight: 400;
-  text-align: center;
-}
-
-.bayanno-admin-department-table-data-manage-facilities-container:hover {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.bayanno-admin-department-table-data-edit-button {
+.bayanno-admin-facility-table-data-edit-button {
   cursor: pointer;
   background-color: #42a5f5;
   border: 1px solid transparent;
@@ -45,11 +28,11 @@
   outline: none;
 }
 
-.bayanno-admin-department-table-data-edit-button:focus {
+.bayanno-admin-facility-table-data-edit-button:focus {
   outline: none;
 }
 
-.bayanno-admin-department-table-data-delete-button {
+.bayanno-admin-facility-table-data-delete-button {
   cursor: pointer;
   background-color: #ef5350;
   border: 1px solid transparent;
@@ -62,7 +45,7 @@
   outline: none;
 }
 
-.bayanno-admin-department-table-data-delete-button:focus {
+.bayanno-admin-facility-table-data-delete-button:focus {
   outline: none;
 }
 
@@ -74,14 +57,14 @@
   padding: 0px;
 }
 
-.bayanno-admin-department-edit-popup-container {
+.bayanno-admin-facility-edit-popup-container {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.bayanno-admin-department-edit-popup-head-container {
+.bayanno-admin-facility-edit-popup-head-container {
   display: flex;
   align-items: center;
   padding-top: 15px;
@@ -91,7 +74,7 @@
   justify-content: space-between;
 }
 
-.bayanno-admin-department-edit-popup-head-name {
+.bayanno-admin-facility-edit-popup-head-name {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 20px;
@@ -99,24 +82,24 @@
   color: #000000;
 }
 
-.bayanno-admin-department-edit-popup-head-close-button {
+.bayanno-admin-facility-edit-popup-head-close-button {
   background: none;
   border: none;
   cursor: pointer;
   outline: none;
 }
 
-.bayanno-admin-department-edit-popup-head-close-button:focus {
+.bayanno-admin-facility-edit-popup-head-close-button:focus {
   outline: none;
 }
 
-.bayanno-admin-department-edit-popup-head-cross-icon {
+.bayanno-admin-facility-edit-popup-head-cross-icon {
   height: 22px;
   width: 22px;
   color: #5e5d5d;
 }
 
-.bayanno-admin-department-edit-popup-content-container {
+.bayanno-admin-facility-edit-popup-content-container {
   width: 100%;
   padding: 9px;
   display: flex;
@@ -126,7 +109,7 @@
   overflow: auto;
 }
 
-.bayanno-admin-department-edit-popup-content-card {
+.bayanno-admin-facility-edit-popup-content-card {
   width: 98%;
   padding: 12px;
   display: flex;
@@ -134,7 +117,7 @@
   border-radius: 3px;
 }
 
-.bayanno-admin-department-edit-popup-content-heading {
+.bayanno-admin-facility-edit-popup-content-heading {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 24px;
@@ -142,31 +125,31 @@
   color: #000000;
 }
 
-.bayanno-admin-department-edit-popup-content-card-main-container {
+.bayanno-admin-facility-edit-popup-content-card-main-container {
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
 @media screen and (min-width: 768px) {
-  .bayanno-admin-department-edit-popup-content-card-main-container {
+  .bayanno-admin-facility-edit-popup-content-card-main-container {
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
 }
 
-.bayanno-admin-department-edit-popup-content-card-input-container {
+.bayanno-admin-facility-edit-popup-content-card-input-container {
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .bayanno-admin-department-edit-popup-content-card-input-container {
+  .bayanno-admin-facility-edit-popup-content-card-input-container {
     max-width: 350px;
   }
 }
 
-.bayanno-admin-department-edit-popup-content-card-label {
+.bayanno-admin-facility-edit-popup-content-card-label {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 18px;
@@ -175,7 +158,7 @@
   cursor: pointer;
 }
 
-.bayanno-admin-department-edit-popup-content-card-name-input {
+.bayanno-admin-facility-edit-popup-content-card-name-input {
   background-color: #ffffff;
   border: 1px solid #888888;
   border-radius: 4px;
@@ -189,12 +172,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .bayanno-admin-department-edit-popup-content-card-name-input {
+  .bayanno-admin-facility-edit-popup-content-card-name-input {
     max-width: 350px;
   }
 }
 
-.bayanno-admin-department-edit-popup-required-txt {
+.bayanno-admin-facility-edit-popup-required-txt {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
@@ -203,7 +186,7 @@
   margin-top: 5px;
 }
 
-.bayanno-admin-department-edit-popup-content-card-des-input {
+.bayanno-admin-facility-edit-popup-content-card-des-input {
   background-color: #ffffff;
   border: 1px solid #888888;
   border-radius: 4px;
@@ -217,55 +200,12 @@
 }
 
 @media screen and (min-width: 768px) {
-  .bayanno-admin-department-edit-popup-content-card-des-input {
+  .bayanno-admin-facility-edit-popup-content-card-des-input {
     max-width: 350px;
   }
 }
 
-.bayanno-admin-department-edit-popup-content-card-image {
-  width: 200px;
-  height: 200px;
-}
-
-.bayanno-admin-department-edit-popup-content-card-select-image-button {
-  background-color: #ffffff;
-  border: 1px solid #9c9b9b;
-  padding: 5px 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  color: #000000;
-  cursor: pointer;
-  outline: none;
-  border-radius: 25px;
-}
-
-.bayanno-admin-department-edit-popup-content-card-select-image-button:focus {
-  outline: none;
-}
-
-.bayanno-admin-department-edit-popup-content-card-remove-image-button {
-  background-color: #c98506;
-  padding: 5px 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  color: #ffffff;
-  cursor: pointer;
-  outline: none;
-  border-radius: 25px;
-  border: 1px solid transparent;
-}
-
-.bayanno-admin-department-edit-popup-content-card-remove-image-button:focus {
-  outline: none;
-}
-
-.bayanno-admin-department-edit-popup-content-card-remove-image-button:hover {
-  background-color: #e09405;
-}
-
-.bayanno-admin-department-edit-popup-content-card-save-image-button {
+.bayanno-admin-facility-edit-popup-content-card-save-image-button {
   background-color: #02995a;
   padding: 5px 10px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -281,15 +221,15 @@
   justify-content: center;
 }
 
-.bayanno-admin-department-edit-popup-content-card-save-image-button:focus {
+.bayanno-admin-facility-edit-popup-content-card-save-image-button:focus {
   outline: none;
 }
 
-.bayanno-admin-department-edit-popup-content-card-save-image-button:hover {
+.bayanno-admin-facility-edit-popup-content-card-save-image-button:hover {
   background-color: #04bd70;
 }
 
-.bayanno-admin-department-edit-popup-content-card-close-button-container {
+.bayanno-admin-facility-edit-popup-content-card-close-button-container {
   padding: 12px;
   text-align: right;
   width: 100%;
@@ -297,7 +237,7 @@
   margin: 0px;
 }
 
-.bayanno-admin-department-edit-popup-content-card-close-button {
+.bayanno-admin-facility-edit-popup-content-card-close-button {
   background-color: #666968;
   padding: 5px 10px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -310,15 +250,15 @@
   border: 1px solid transparent;
 }
 
-.bayanno-admin-department-edit-popup-content-card-close-button:focus {
+.bayanno-admin-facility-edit-popup-content-card-close-button:focus {
   outline: none;
 }
 
-.bayanno-admin-department-edit-popup-content-card-close-button:hover {
+.bayanno-admin-facility-edit-popup-content-card-close-button:hover {
   background-color: #777777;
 }
 
-.bayanno-admin-department-edit-popup-content-card-server-msg {
+.bayanno-admin-facility-edit-popup-content-card-server-msg {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
@@ -327,17 +267,17 @@
   margin-top: 5px;
 }
 
-.bayanno-admin-department-edit-popup-content-card-server-msg-success {
+.bayanno-admin-facility-edit-popup-content-card-server-msg-success {
   color: rgb(1, 158, 1);
 }
 
 @media screen and (min-width: 768px) {
-  .bayanno-admin-department-edit-popup-content-card-server-msg {
+  .bayanno-admin-facility-edit-popup-content-card-server-msg {
     text-align: center;
   }
 }
 
-.bayanno-admin-department-delete-popup-container {
+.bayanno-admin-facility-delete-popup-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -345,7 +285,7 @@
   justify-content: center;
 }
 
-.bayanno-admin-department-delete-popup-head-container {
+.bayanno-admin-facility-delete-popup-head-container {
   display: flex;
   align-items: center;
   padding-top: 20px;
@@ -355,7 +295,7 @@
   justify-content: space-between;
 }
 
-.bayanno-admin-department-delete-popup-head-name {
+.bayanno-admin-facility-delete-popup-head-name {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 18px;
@@ -365,24 +305,24 @@
   text-align: center;
 }
 
-.bayanno-admin-department-delete-popup-head-close-button {
+.bayanno-admin-facility-delete-popup-head-close-button {
   background: none;
   border: none;
   cursor: pointer;
   outline: none;
 }
 
-.bayanno-admin-department-delete-popup-head-close-button:focus {
+.bayanno-admin-facility-delete-popup-head-close-button:focus {
   outline: none;
 }
 
-.bayanno-admin-department-delete-popup-head-cross-icon {
+.bayanno-admin-facility-delete-popup-head-cross-icon {
   height: 22px;
   width: 22px;
   color: #5e5d5d;
 }
 
-.bayanno-admin-department-delete-popup-button {
+.bayanno-admin-facility-delete-popup-button {
   cursor: pointer;
   background-color: #ef5350;
   border: 1px solid transparent;
@@ -398,11 +338,11 @@
   margin-right: 18px;
 }
 
-.bayanno-admin-department-delete-popup-button:focus {
+.bayanno-admin-facility-delete-popup-button:focus {
   outline: none;
 }
 
-.bayanno-admin-department-delete-popup-cancel-button {
+.bayanno-admin-facility-delete-popup-cancel-button {
   cursor: pointer;
   background-color: #42a5f5;
   border: 1px solid transparent;
@@ -418,6 +358,6 @@
   margin-right: 8px;
 }
 
-.bayanno-admin-department-delete-popup-cancel-button:focus {
+.bayanno-admin-facility-delete-popup-cancel-button:focus {
   outline: none;
 }

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import bayannoLogo from "../../../assets/bayanno-hospital-logo.png";
 import adminProfileIcon from "../../../assets/doctors-profile-icon.jpg";
@@ -43,64 +43,134 @@ const AdminNavbar = () => {
         </div>
         <div className="collapse" id="adminNavMenu">
           <div className="bayanno-admin-navbar-menu-container">
-            <Link className="bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/dashboard"}
+            >
               <i className="fa-solid fa-desktop bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Dashboard
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/department"}
+            >
               <i className="fa-solid fa-sitemap bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Department
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/doctor"}
+            >
               <i className="fa-solid fa-user-md bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Doctor
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/patient"}
+            >
               <i className="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Patient
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/nurse"}
+            >
               <i className="fa-solid fa-plus-square bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">Nurse</span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/pharmacist"}
+            >
               <i className="fa-solid fa-medkit bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Pharmacist
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/laboratorist"}
+            >
               <i className="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Laboratorist
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/accountant"}
+            >
               <i className="fa-solid fa-money-bill-1 bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Accountant
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/receptionist"}
+            >
               <i className="fa-solid fa-plus-square bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Receptionist
               </span>
-            </Link>
-            <Link className="bayanno-admin-navbar-menu-item-container">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bayanno-admin-navbar-menu-item-container bayanno-admin-navbar-menu-item-container-active"
+                  : "bayanno-admin-navbar-menu-item-container"
+              }
+              to={"/bayanno/admin/account"}
+            >
               <i className="fa-solid fa-user bayanno-admin-navbar-menu-item-icon"></i>
               <span className="bayanno-admin-navbar-menu-item-text">
                 Account
               </span>
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
