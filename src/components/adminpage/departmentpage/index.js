@@ -1,11 +1,8 @@
-import { Link } from "react-router-dom";
 import AdminFooter from "../adminfooter";
 import AdminHeader from "../adminheader";
 import AdminNavbar from "../adminnavbar";
 import AdminSidebar from "../adminsidebar";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
-import anestheticsImage from "../../../assets/anesthetics-image.png";
-import cardiologyImage from "../../../assets/cardialogy-image.png";
 import Popup from "reactjs-popup";
 import addSelectImage from "../../../assets/select-256x256-image.png";
 import "./index.css";

@@ -78,7 +78,7 @@ const AdminDepartmentFacilities = () => {
         apiStatus: apiConstants.success,
       }));
     } else {
-      const departmentResJson = await departmentRes.json();
+      // const departmentResJson = await departmentRes.json();
       setDepartmentDetails((prevState) => ({
         ...prevState,
         department: {},

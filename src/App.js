@@ -8,6 +8,8 @@ import AdminDashboard from "./components/adminpage/dashboardpage";
 import AdminDepartment from "./components/adminpage/departmentpage";
 import AdminDepartmentFacilities from "./components/adminpage/departmentfacilities";
 import ProtectedRoute from "./components/protectedRoute";
+import AdminDoctorPage from "./components/adminpage/doctorpagemain/doctorpage";
+import AdminPatientPage from "./components/adminpage/patientpagemain/patientpage";
 
 const App = () => {
   return (
@@ -35,6 +37,16 @@ const App = () => {
           exact
           path="/bayanno/admin/department_facilities/:departmentId"
           element={<AdminDepartmentFacilities />}
+        />
+        <Route
+          exact
+          path="/bayanno/admin/doctor"
+          element={<AdminDoctorPage />}
+        />
+        <Route
+          exact
+          path="/bayanno/admin/patient"
+          element={<AdminPatientPage />}
         />
       </Route>
     </Routes>

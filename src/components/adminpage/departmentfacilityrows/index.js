@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./index.css";
 import Popup from "reactjs-popup";
 import { useState } from "react";
@@ -7,7 +6,7 @@ import "reactjs-popup/dist/index.css";
 
 const DepartmentFacilitiesPageRows = (props) => {
   const { eachObject, gettingFacilitiesList, departmentName } = props;
-  const { title, facilityDescription, departmentId, _id } = eachObject;
+  const { title, facilityDescription, _id } = eachObject;
 
   const getListAgain = () => {
     gettingFacilitiesList();
