@@ -10,6 +10,7 @@ import AdminDepartmentFacilities from "./components/adminpage/departmentfaciliti
 import ProtectedRoute from "./components/protectedRoute";
 import AdminDoctorPage from "./components/adminpage/doctorpagemain/doctorpage";
 import AdminPatientPage from "./components/adminpage/patientpagemain/patientpage";
+import AdminNursePage from "./components/adminpage/nursepagemain/nursepage";
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
           path="/bayanno/admin/patient"
           element={<AdminPatientPage />}
         />
+        <Route exact path="/bayanno/admin/nurse" element={<AdminNursePage />} />
       </Route>
     </Routes>
   );

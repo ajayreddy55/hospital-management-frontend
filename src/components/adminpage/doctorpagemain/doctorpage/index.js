@@ -69,8 +69,15 @@ const AdminDoctorPage = () => {
     apiStatus: apiConstants.initial,
   });
 
+  const [departmentsList, setDepartmentsList] = useState([]);
+
   useEffect(() => {
     getDoctorsList();
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    getDepartmentsList();
     //eslint-disable-next-line
   }, []);
 
@@ -105,6 +112,26 @@ const AdminDoctorPage = () => {
         doctors: [],
         apiStatus: apiConstants.failure,
       }));
+    }
+  };
+
+  const getDepartmentsList = async () => {
+    const url = "http://localhost:5000/api/all-departments";
+    const jwtToken = Cookies.get("hospital-jwt-token");
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    const departmentRes = await fetch(url, options);
+
+    if (departmentRes.ok) {
+      const departmentResJson = await departmentRes.json();
+      setDepartmentsList(departmentResJson.departmentsList);
+    } else {
+      setDepartmentsList([]);
     }
   };
 
@@ -598,6 +625,7 @@ const AdminDoctorPage = () => {
                     key={eachObject._id}
                     eachObject={eachObject}
                     gettingDoctorsList={getDoctorsList}
+                    departmentSelectList={departmentsList}
                   />
                 ))}
               </tbody>
@@ -862,7 +890,15 @@ const AdminDoctorPage = () => {
                                       onChange={addDoctorChangeDepartment}
                                       value={addDoctorDepartment.department}
                                     >
-                                      <option value={"Anesthetics"}>
+                                      {departmentsList.map((eachObject) => (
+                                        <option
+                                          key={eachObject._id}
+                                          value={eachObject.name}
+                                        >
+                                          {eachObject.name}
+                                        </option>
+                                      ))}
+                                      {/* <option value={"Anesthetics"}>
                                         Anesthetics
                                       </option>
                                       <option value={"Cardiology"}>
@@ -870,7 +906,7 @@ const AdminDoctorPage = () => {
                                       </option>
                                       <option value={"Gastroenterology"}>
                                         Gastroenterology
-                                      </option>
+                                      </option> */}
                                     </select>
                                     <p className="bayanno-admin-doctor-add-popup-required-txt">
                                       {

@@ -6,7 +6,7 @@ import axios from "axios";
 import "reactjs-popup/dist/index.css";
 
 const DoctorPageRows = (props) => {
-  const { eachObject, gettingDoctorsList } = props;
+  const { eachObject, gettingDoctorsList, departmentSelectList } = props;
   const {
     name,
     email,
@@ -565,11 +565,16 @@ const DoctorPageRows = (props) => {
                         onChange={editDoctorChangeDepartment}
                         value={editDoctorDepartment.department}
                       >
-                        <option value={"Anesthetics"}>Anesthetics</option>
+                        {departmentSelectList.map((eachObject) => (
+                          <option key={eachObject._id} value={eachObject.name}>
+                            {eachObject.name}
+                          </option>
+                        ))}
+                        {/* <option value={"Anesthetics"}>Anesthetics</option>
                         <option value={"Cardiology"}>Cardiology</option>
                         <option value={"Gastroenterology"}>
                           Gastroenterology
-                        </option>
+                        </option> */}
                       </select>
                       <p className="bayanno-admin-doctor-edit-popup-required-txt">
                         {editDoctorDepartment.departmentRequiredText}
