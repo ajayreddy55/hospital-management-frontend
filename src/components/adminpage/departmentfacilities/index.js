@@ -276,45 +276,6 @@ const AdminDepartmentFacilities = () => {
 
     return (
       <>
-        <div className="row bayanno-admin-facility-search-pages-container">
-          <div className="col-12 p-0 col-lg-3">
-            <div className="bayanno-admin-facility-items-per-page-container">
-              <select className="bayanno-admin-facility-items-select-container">
-                <option value={"10"} selected>
-                  10
-                </option>
-                <option value={"25"}>25</option>
-                <option value={"50"}>50</option>
-                <option value={"100"}>100</option>
-              </select>
-              <label className="bayanno-admin-facility-items-per-page-text">
-                Per Page
-              </label>
-            </div>
-          </div>
-          <div className="col-12 col-lg-9 p-0">
-            <div className="d-flex align-items-center p-3 justify-content-lg-end">
-              <div className="bayanno-admin-facility-print-container mr-3">
-                <div className="bayanno-admin-facility-print-extensions-container">
-                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
-                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
-                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
-                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
-                </div>
-                <button className="bayanno-admin-facility-print-button">
-                  Print
-                </button>
-              </div>
-              <div className="ml-3">
-                <input
-                  className="bayanno-admin-facility-search-bar"
-                  type="search"
-                  placeholder="Search"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="row">
           <div className="col-12 p-0">
             <table className="bayanno-admin-facility-table-container">
@@ -346,39 +307,6 @@ const AdminDepartmentFacilities = () => {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-        <div className="row d-flex align-items-center">
-          <div className="col-12 col-lg-3">
-            <div className="bayanno-admin-facility-showing-items-container">
-              <span className="bayanno-admin-facility-showing-items-text">
-                Showing 1 to {facilitiesObject.facilities.length} of{" "}
-                {facilitiesObject.facilities.length}
-              </span>
-            </div>
-          </div>
-          <div className="col-12 col-lg-9">
-            <div className="bayanno-admin-facility-pagination-container pt-3">
-              <nav aria-label="Page navigation example">
-                <ul className="pagination">
-                  <li className="page-item">
-                    <a className="page-link" href="#1" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li className="page-item active">
-                    <a className="page-link" href="#1">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#1" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
           </div>
         </div>
       </>
@@ -602,7 +530,91 @@ const AdminDepartmentFacilities = () => {
                   <div className="col-12 mt-3">
                     <div className="bayanno-admin-facility-table-wrapper">
                       <div className="container-fluid">
+                        <div className="row bayanno-admin-facility-search-pages-container">
+                          <div className="col-12 p-0 col-lg-3">
+                            <div className="bayanno-admin-facility-items-per-page-container">
+                              <select className="bayanno-admin-facility-items-select-container">
+                                <option value={"10"} selected>
+                                  10
+                                </option>
+                                <option value={"25"}>25</option>
+                                <option value={"50"}>50</option>
+                                <option value={"100"}>100</option>
+                              </select>
+                              <label className="bayanno-admin-facility-items-per-page-text">
+                                Per Page
+                              </label>
+                            </div>
+                          </div>
+                          <div className="col-12 col-lg-9 p-0">
+                            <div className="d-flex align-items-center p-3 justify-content-lg-end">
+                              <div className="bayanno-admin-facility-print-container mr-3">
+                                <div className="bayanno-admin-facility-print-extensions-container">
+                                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
+                                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
+                                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
+                                  <IoExtensionPuzzleSharp className="bayanno-admin-facility-print-extensions" />
+                                </div>
+                                <button className="bayanno-admin-facility-print-button">
+                                  Print
+                                </button>
+                              </div>
+                              <div className="ml-3">
+                                <input
+                                  className="bayanno-admin-facility-search-bar"
+                                  type="search"
+                                  placeholder="Search"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         {checkingWhatToRender()}
+                        <div className="row d-flex align-items-center">
+                          <div className="col-12 col-lg-3">
+                            <div className="bayanno-admin-facility-showing-items-container">
+                              <span className="bayanno-admin-facility-showing-items-text">
+                                Showing{" "}
+                                {facilitiesObject.facilities.length >= 1
+                                  ? 1
+                                  : 0}{" "}
+                                to {facilitiesObject.facilities.length} of{" "}
+                                {facilitiesObject.facilities.length}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="col-12 col-lg-9">
+                            <div className="bayanno-admin-facility-pagination-container pt-3">
+                              <nav aria-label="Page navigation example">
+                                <ul className="pagination">
+                                  <li className="page-item">
+                                    <a
+                                      className="page-link"
+                                      href="#1"
+                                      aria-label="Previous"
+                                    >
+                                      <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                  </li>
+                                  <li className="page-item active">
+                                    <a className="page-link" href="#1">
+                                      1
+                                    </a>
+                                  </li>
+                                  <li className="page-item">
+                                    <a
+                                      className="page-link"
+                                      href="#1"
+                                      aria-label="Next"
+                                    >
+                                      <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </nav>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

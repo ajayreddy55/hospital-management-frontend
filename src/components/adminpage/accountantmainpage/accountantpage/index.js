@@ -5,14 +5,13 @@ import AdminSidebar from "../../adminsidebar";
 import { IoExtensionPuzzleSharp } from "react-icons/io5";
 import Popup from "reactjs-popup";
 import addProfileImage from "../../../../assets/add-image-doctor.png";
-import "./index.css";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Hourglass } from "react-loader-spinner";
 import axios from "axios";
 import "reactjs-popup/dist/index.css";
 import "../../admincommoncss/index.css";
-import NursePageRows from "../nursepagerows";
+import AccountantPageRows from "../accountantpagerows";
 
 const apiConstants = {
   initial: "INITIAL",
@@ -21,7 +20,7 @@ const apiConstants = {
   failure: "FAILURE",
 };
 
-const AdminNursePage = () => {
+const AdminAccountantPage = () => {
   const [addName, setAddName] = useState({
     name: "",
     nameRequiredText: "",
@@ -53,24 +52,24 @@ const AdminNursePage = () => {
     textColor: "",
   });
 
-  const [nursesObject, setNursesObject] = useState({
-    nurses: [],
+  const [accountantsObject, setAccountantsObject] = useState({
+    accountants: [],
     apiStatus: apiConstants.initial,
   });
 
   useEffect(() => {
-    getNursesList();
+    getAccountantsList();
     //eslint-disable-next-line
   }, []);
 
-  const getNursesList = async () => {
-    setNursesObject((prevState) => ({
+  const getAccountantsList = async () => {
+    setAccountantsObject((prevState) => ({
       ...prevState,
-      nurses: [],
+      accountants: [],
       apiStatus: apiConstants.inProgress,
     }));
 
-    const url = "http://localhost:5000/api/get-all-nurses";
+    const url = "http://localhost:5000/api/get-all-accountants";
     const jwtToken = Cookies.get("hospital-jwt-token");
     const options = {
       method: "GET",
@@ -83,15 +82,15 @@ const AdminNursePage = () => {
 
     if (responseList.ok) {
       const responseListJson = await responseList.json();
-      setNursesObject((prevState) => ({
+      setAccountantsObject((prevState) => ({
         ...prevState,
-        nurses: responseListJson.nurses,
+        accountants: responseListJson.accountants,
         apiStatus: apiConstants.success,
       }));
     } else {
-      setNursesObject((prevState) => ({
+      setAccountantsObject((prevState) => ({
         ...prevState,
-        nurses: [],
+        accountants: [],
         apiStatus: apiConstants.failure,
       }));
     }
@@ -223,7 +222,7 @@ const AdminNursePage = () => {
   };
 
   const addRemoveIcon = () => {
-    const input = document.getElementById("addNurseIconInput");
+    const input = document.getElementById("addAccountantIconInput");
     input.value = null;
     setAddImageToDisplay("");
     setAddIcon((prevState) => ({
@@ -234,7 +233,7 @@ const AdminNursePage = () => {
   };
 
   const addDetailsInDatabase = async (image) => {
-    const url = "http://localhost:5000/api/adding-nurse";
+    const url = "http://localhost:5000/api/adding-accountant";
     const jwtToken = Cookies.get("hospital-jwt-token");
 
     const options = {
@@ -281,7 +280,7 @@ const AdminNursePage = () => {
       }));
       setAddAddress("");
       setAddPhoneNumber("");
-      const inputIcon = document.getElementById("addNurseIconInput");
+      const inputIcon = document.getElementById("addAccountantIconInput");
       inputIcon.value = null;
       setAddImageToDisplay("");
       setAddIcon((prevState) => ({
@@ -289,7 +288,7 @@ const AdminNursePage = () => {
         icon: "",
         iconRequiredText: "",
       }));
-      getNursesList();
+      getAccountantsList();
     } else {
       const responseObjectJson = await responseObject.json();
       setAddServerMsg((prevState) => ({
@@ -395,7 +394,7 @@ const AdminNursePage = () => {
   };
 
   const renderListDataView = () => {
-    if (nursesObject.nurses.length === 0) {
+    if (accountantsObject.accountants.length === 0) {
       return noDataView();
     }
 
@@ -427,11 +426,11 @@ const AdminNursePage = () => {
                 </tr>
               </thead>
               <tbody>
-                {nursesObject.nurses.map((eachObject) => (
-                  <NursePageRows
+                {accountantsObject.accountants.map((eachObject) => (
+                  <AccountantPageRows
                     key={eachObject._id}
                     eachObject={eachObject}
-                    gettingNursesList={getNursesList}
+                    gettingAccountantsList={getAccountantsList}
                   />
                 ))}
               </tbody>
@@ -469,7 +468,7 @@ const AdminNursePage = () => {
   };
 
   const checkingWhatToRender = () => {
-    switch (nursesObject.apiStatus) {
+    switch (accountantsObject.apiStatus) {
       case apiConstants.success:
         return renderListDataView();
 
@@ -504,7 +503,7 @@ const AdminNursePage = () => {
                     <div className="d-flex align-items-center">
                       <i class="fa-regular fa-circle-right bayanno-admin-nplar-main-heading-icon"></i>
                       <h3 className="bayanno-admin-nplar-main-heading-text">
-                        Nurse
+                        Accountant
                       </h3>
                     </div>
                   </div>
@@ -518,7 +517,7 @@ const AdminNursePage = () => {
                           className="bayanno-admin-nplar-add-button"
                         >
                           <i class="fa-solid fa-plus bayanno-admin-nplar-add-plus-icon"></i>{" "}
-                          Add Nurse
+                          Add Accountant
                         </button>
                       }
                       modal="true"
@@ -542,7 +541,7 @@ const AdminNursePage = () => {
                           <div className="bayanno-admin-nplar-add-popup-content-container">
                             <div className="bayanno-admin-nplar-add-popup-content-card shadow">
                               <h1 className="bayanno-admin-nplar-add-popup-content-heading mt-3">
-                                Add Nurse
+                                Add Accountant
                               </h1>
                               <form
                                 className="d-flex flex-column mt-4 mb-3"
@@ -551,7 +550,7 @@ const AdminNursePage = () => {
                                 <div className="bayanno-admin-nplar-add-popup-content-card-main-container mt-2 mb-2">
                                   <label
                                     className="bayanno-admin-nplar-add-popup-content-card-label mr-3"
-                                    htmlFor="addNurseNameInput"
+                                    htmlFor="addAccountantNameInput"
                                   >
                                     Name
                                   </label>
@@ -560,7 +559,7 @@ const AdminNursePage = () => {
                                       type="text"
                                       placeholder="Enter Your Name"
                                       className="bayanno-admin-nplar-add-popup-content-card-name-input"
-                                      id="addNurseNameInput"
+                                      id="addAccountantNameInput"
                                       onChange={addChangeName}
                                       value={addName.name}
                                     />
@@ -572,7 +571,7 @@ const AdminNursePage = () => {
                                 <div className="bayanno-admin-nplar-add-popup-content-card-main-container mt-2 mb-2">
                                   <label
                                     className="bayanno-admin-nplar-add-popup-content-card-label mr-3"
-                                    htmlFor="addNurseEmailInput"
+                                    htmlFor="addAccountantEmailInput"
                                   >
                                     Email
                                   </label>
@@ -581,7 +580,7 @@ const AdminNursePage = () => {
                                       type="text"
                                       placeholder="Enter Your Email"
                                       className="bayanno-admin-nplar-add-popup-content-card-name-input"
-                                      id="addNurseEmailInput"
+                                      id="addAccountantEmailInput"
                                       onChange={addChangeEmail}
                                       value={addEmail.email}
                                     />
@@ -593,7 +592,7 @@ const AdminNursePage = () => {
                                 <div className="bayanno-admin-nplar-add-popup-content-card-main-container mt-2 mb-2">
                                   <label
                                     className="bayanno-admin-nplar-add-popup-content-card-label mr-3"
-                                    htmlFor="addNursePasswordInput"
+                                    htmlFor="addAccountantPasswordInput"
                                   >
                                     Password
                                   </label>
@@ -602,7 +601,7 @@ const AdminNursePage = () => {
                                       type="password"
                                       placeholder="Enter Your Password"
                                       className="bayanno-admin-nplar-add-popup-content-card-name-input"
-                                      id="addNursePasswordInput"
+                                      id="addAccountantPasswordInput"
                                       onChange={addChangePassword}
                                       value={addPassword.password}
                                     />
@@ -614,7 +613,7 @@ const AdminNursePage = () => {
                                 <div className="bayanno-admin-nplar-add-popup-content-card-main-container mt-2 mb-2">
                                   <label
                                     className="bayanno-admin-nplar-add-popup-content-card-label mr-3"
-                                    htmlFor="addNurseAddressInput"
+                                    htmlFor="addAccountantAddressInput"
                                   >
                                     Address
                                   </label>
@@ -622,7 +621,7 @@ const AdminNursePage = () => {
                                     <textarea
                                       placeholder="Enter Address"
                                       className="bayanno-admin-nplar-add-popup-content-card-des-input"
-                                      id="addNurseAddressInput"
+                                      id="addAccountantAddressInput"
                                       rows={20}
                                       cols={60}
                                       onChange={addChangeAddress}
@@ -633,7 +632,7 @@ const AdminNursePage = () => {
                                 <div className="bayanno-admin-nplar-add-popup-content-card-main-container mt-2 mb-2">
                                   <label
                                     className="bayanno-admin-nplar-add-popup-content-card-label mr-3"
-                                    htmlFor="addNursePhoneInput"
+                                    htmlFor="addAccountantPhoneInput"
                                   >
                                     Phone
                                   </label>
@@ -642,7 +641,7 @@ const AdminNursePage = () => {
                                       type="text"
                                       placeholder="Enter Your Phone Number"
                                       className="bayanno-admin-nplar-add-popup-content-card-name-input"
-                                      id="addNursePhoneInput"
+                                      id="addAccountantPhoneInput"
                                       onChange={addChangePhoneNumber}
                                       value={addPhoneNumber}
                                     />
@@ -671,7 +670,7 @@ const AdminNursePage = () => {
                                   {addIcon.icon === "" ? (
                                     <label
                                       className="bayanno-admin-nplar-add-popup-content-card-select-image-button"
-                                      htmlFor="addNurseIconInput"
+                                      htmlFor="addAccountantIconInput"
                                     >
                                       Select Image
                                     </label>
@@ -683,7 +682,7 @@ const AdminNursePage = () => {
                                     type="file"
                                     accept="image/*"
                                     className="d-none"
-                                    id="addNurseIconInput"
+                                    id="addAccountantIconInput"
                                     onChange={addChangeIcon}
                                   />
                                 </div>
@@ -693,7 +692,7 @@ const AdminNursePage = () => {
                                   <div className="mt-2 mb-2 d-flex align-items-center justify-content-md-center">
                                     <label
                                       className="bayanno-admin-nplar-add-popup-content-card-select-image-button mr-3"
-                                      htmlFor="addNurseIconInput"
+                                      htmlFor="addAccountantIconInput"
                                     >
                                       Change
                                     </label>
@@ -786,9 +785,11 @@ const AdminNursePage = () => {
                             <div className="bayanno-admin-nplar-showing-items-container">
                               <span className="bayanno-admin-nplar-showing-items-text">
                                 Showing{" "}
-                                {nursesObject.nurses.length >= 1 ? 1 : 0} to{" "}
-                                {nursesObject.nurses.length} of{" "}
-                                {nursesObject.nurses.length}
+                                {accountantsObject.accountants.length >= 1
+                                  ? 1
+                                  : 0}{" "}
+                                to {accountantsObject.accountants.length} of{" "}
+                                {accountantsObject.accountants.length}
                               </span>
                             </div>
                           </div>
@@ -838,4 +839,4 @@ const AdminNursePage = () => {
   );
 };
 
-export default AdminNursePage;
+export default AdminAccountantPage;

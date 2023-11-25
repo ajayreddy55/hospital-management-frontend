@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import bayannoHospitalLogo from "../../assets/bayanno-hospital-logo.png";
+import "reactjs-popup/dist/index.css";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 import "./index.css";
 
@@ -31,17 +34,20 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
           <Link className="nav-link active navbar-link-item">HOME</Link>
-          <div className="nav-link">
-            <Popup
-              trigger={
-                <button type="button" className="navbar-departments-button">
-                  DEPARTMENTS
-                </button>
-              }
-              position={"bottom center"}
-              on={["hover", "click"]}
-              arrow={true}
-              className="popup-content"
+          <div className="nav-link nav-link-departments">
+            <button
+              type="button"
+              className="navbar-departments-button"
+              data-tooltip-id="navbarDepartmentsButton"
+            >
+              DEPARTMENTS
+            </button>
+            <Tooltip
+              id="navbarDepartmentsButton"
+              className="tooltip-departments"
+              place="bottom"
+              clickable
+              opacity={1}
             >
               <div className="navbar-tooltip-dep-container">
                 <Link className="navbar-dep-link-item">Anesthetics</Link>
@@ -50,7 +56,26 @@ const Navbar = () => {
                   Gastroenterology
                 </Link>
               </div>
-            </Popup>
+            </Tooltip>
+            {/* <Popup
+              trigger={
+                <button type="button" className="navbar-departments-button">
+                  DEPARTMENTS
+                </button>
+              }
+              position={"bottom center"}
+              on={["hover", "click"]}
+              arrow={true}
+              className="popup-content-home"
+            >
+              <div className="navbar-tooltip-dep-container">
+                <Link className="navbar-dep-link-item">Anesthetics</Link>
+                <Link className="navbar-dep-link-item mt-2">Cardiology</Link>
+                <Link className="navbar-dep-link-item mt-2">
+                  Gastroenterology
+                </Link>
+              </div>
+            </Popup> */}
           </div>
           <Link className="nav-link navbar-link-item">DOCTORS</Link>
           <Link className="nav-link navbar-link-item">ABOUT</Link>

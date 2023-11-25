@@ -56,11 +56,12 @@
   color: #039edb;
 }
 
-.popup-content {
+.nav-link-departments .tooltip-departments {
   background-color: #ffffff;
   box-shadow: 3px 3px 10px 2px #a5a5a5;
   padding: 7px;
   border-radius: 8px;
+  z-index: 10;
 }
 
 .navbar-tooltip-dep-container {

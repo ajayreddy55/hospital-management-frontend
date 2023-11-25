@@ -11,6 +11,10 @@ import ProtectedRoute from "./components/protectedRoute";
 import AdminDoctorPage from "./components/adminpage/doctorpagemain/doctorpage";
 import AdminPatientPage from "./components/adminpage/patientpagemain/patientpage";
 import AdminNursePage from "./components/adminpage/nursepagemain/nursepage";
+import AdminPharmacistPage from "./components/adminpage/pharmacistpagemain/pharmacistpage";
+import AdminLaboratoristPage from "./components/adminpage/laboratoristmainpage/laboratoristpage";
+import AdminAccountantPage from "./components/adminpage/accountantmainpage/accountantpage";
+import AdminReceptionistPage from "./components/adminpage/receptionistmainpage/receptionistpage";
 
 const App = () => {
   return (
@@ -50,6 +54,26 @@ const App = () => {
           element={<AdminPatientPage />}
         />
         <Route exact path="/bayanno/admin/nurse" element={<AdminNursePage />} />
+        <Route
+          exact
+          path="/bayanno/admin/pharmacist"
+          element={<AdminPharmacistPage />}
+        />
+        <Route
+          exact
+          path="/bayanno/admin/laboratorist"
+          element={<AdminLaboratoristPage />}
+        />
+        <Route
+          exact
+          path="/bayanno/admin/accountant"
+          element={<AdminAccountantPage />}
+        />
+        <Route
+          exact
+          path="/bayanno/admin/receptionist"
+          element={<AdminReceptionistPage />}
+        />
       </Route>
     </Routes>
   );
