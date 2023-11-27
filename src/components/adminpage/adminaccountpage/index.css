@@ -3,3 +3,123 @@
   width: 100%;
   border-radius: 5px;
 }
+
+.bayanno-admin-account-profile-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #000000;
+}
+
+.bayanno-admin-account-profile-form-container {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .bayanno-admin-account-profile-name-label-container {
+    width: 25%;
+    display: inline-block;
+    margin-right: 14px;
+  }
+}
+
+.bayanno-admin-account-profile-name-label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #949494;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .bayanno-admin-account-profile-name-label {
+    text-align: right;
+    width: 100%;
+  }
+}
+
+.bayanno-admin-account-profile-name-input-container {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .bayanno-admin-account-profile-name-input-container {
+    width: 40%;
+    display: inline-block;
+    margin-left: 14px;
+  }
+}
+
+.bayanno-admin-account-profile-name-input {
+  outline: none;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  height: 40px;
+  width: 100%;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #555555;
+  padding: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .bayanno-admin-account-profile-button-main-container {
+    margin-left: 25%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .bayanno-admin-account-profile-button-container {
+    margin-left: 28px;
+  }
+}
+
+.bayanno-admin-account-profile-button {
+  background-color: #66bb6a;
+  color: #ffffff;
+  border: 1px solid #66bb6a;
+  padding: 6px 12px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+  border-radius: 60px;
+}
+
+.bayanno-admin-account-profile-button:focus {
+  outline: none;
+}
+
+.bayanno-admin-account-profile-button:hover {
+  background-color: #68f06e;
+  border: 1px solid #68f06e;
+  transition: all 0.3s ease;
+}
+
+.bayanno-admin-account-profile-email-required-msg {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: rgb(224, 3, 3);
+  font-weight: 400;
+}
+
+.bayanno-admin-account-profile-server-msg {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: rgb(224, 3, 3);
+  font-weight: 400;
+}
+
+.bayanno-admin-account-profile-server-msg-success {
+  color: rgb(3, 196, 3);
+}

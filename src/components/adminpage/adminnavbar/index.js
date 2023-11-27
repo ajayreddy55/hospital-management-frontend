@@ -4,8 +4,61 @@ import bayannoLogo from "../../../assets/bayanno-hospital-logo.png";
 import adminProfileIcon from "../../../assets/doctors-profile-icon.jpg";
 
 import "./index.css";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+
+const apiConstants = {
+  initial: "INITIAL",
+  inProgress: "IN_PROGRESS",
+  success: "SUCCESS",
+  failure: "FAILURE",
+};
 
 const AdminNavbar = () => {
+  const [userInfo, setUserInfo] = useState({
+    user: {},
+    apiStatus: apiConstants.initial,
+  });
+
+  useEffect(() => {
+    getUserDetails();
+    //eslint-disable-next-line
+  }, []);
+
+  const getUserDetails = async () => {
+    setUserInfo((prevState) => ({
+      ...prevState,
+      user: {},
+      apiStatus: apiConstants.inProgress,
+    }));
+
+    const url = "http://localhost:5000/auth/profile";
+    const jwtToken = Cookies.get("hospital-jwt-token");
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    const responseObject = await fetch(url, options);
+
+    if (responseObject.ok) {
+      const responseObjectJson = await responseObject.json();
+      setUserInfo((prevState) => ({
+        ...prevState,
+        user: responseObjectJson.userDetails,
+        apiStatus: apiConstants.success,
+      }));
+    } else {
+      setUserInfo((prevState) => ({
+        ...prevState,
+        user: {},
+        apiStatus: apiConstants.failure,
+      }));
+    }
+  };
+
   return (
     <nav className="bayanno-admin-navbar-container">
       <div className="bayanno-admin-navbar-inner-container">
@@ -37,7 +90,11 @@ const AdminNavbar = () => {
               <p className="bayanno-admin-navbar-profile-welcome-text">
                 Welcome,
               </p>
-              <p className="bayanno-admin-navbar-profile-name">Mr. Admin</p>
+              <p className="bayanno-admin-navbar-profile-name">
+                {userInfo.apiStatus === apiConstants.success
+                  ? userInfo.user.name
+                  : "Admin"}
+              </p>
             </div>
           </div>
         </div>

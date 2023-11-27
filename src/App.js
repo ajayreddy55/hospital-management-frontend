@@ -15,6 +15,7 @@ import AdminPharmacistPage from "./components/adminpage/pharmacistpagemain/pharm
 import AdminLaboratoristPage from "./components/adminpage/laboratoristmainpage/laboratoristpage";
 import AdminAccountantPage from "./components/adminpage/accountantmainpage/accountantpage";
 import AdminReceptionistPage from "./components/adminpage/receptionistmainpage/receptionistpage";
+import AdminAccountPage from "./components/adminpage/adminaccountpage";
 
 const App = () => {
   return (
@@ -73,6 +74,11 @@ const App = () => {
           exact
           path="/bayanno/admin/receptionist"
           element={<AdminReceptionistPage />}
+        />
+        <Route
+          exact
+          path="/bayanno/admin/account"
+          element={<AdminAccountPage />}
         />
       </Route>
     </Routes>

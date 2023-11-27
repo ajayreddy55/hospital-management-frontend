@@ -71,10 +71,13 @@ const AdminDoctorPage = () => {
 
   const [departmentsList, setDepartmentsList] = useState([]);
 
+  const [searchInput, setSearchInput] = useState("");
+  const [limitRowsValue, setLimitRowsValue] = useState(10);
+
   useEffect(() => {
     getDoctorsList();
     //eslint-disable-next-line
-  }, []);
+  }, [searchInput, limitRowsValue]);
 
   useEffect(() => {
     getDepartmentsList();
@@ -88,7 +91,7 @@ const AdminDoctorPage = () => {
       apiStatus: apiConstants.inProgress,
     }));
 
-    const url = "http://localhost:5000/api/get-all-doctors";
+    const url = `http://localhost:5000/api/get-all-doctors?search=${searchInput}&limit=${limitRowsValue}`;
     const jwtToken = Cookies.get("hospital-jwt-token");
     const options = {
       method: "GET",
@@ -639,6 +642,14 @@ const AdminDoctorPage = () => {
     }
   };
 
+  const changeLimitRowsValue = (event) => {
+    setLimitRowsValue(event.target.value);
+  };
+
+  const changeSearchInput = (event) => {
+    setSearchInput(event.target.value);
+  };
+
   return (
     <div className="bayanno-admin-doctor-main-container">
       <div className="container-fluid bayanno-admin-height-container-doctor">
@@ -1017,7 +1028,11 @@ const AdminDoctorPage = () => {
                         <div className="row bayanno-admin-doctor-search-pages-container">
                           <div className="col-12 p-0 col-lg-3">
                             <div className="bayanno-admin-doctor-items-per-page-container">
-                              <select className="bayanno-admin-doctor-items-select-container">
+                              <select
+                                className="bayanno-admin-doctor-items-select-container"
+                                value={limitRowsValue}
+                                onChange={changeLimitRowsValue}
+                              >
                                 <option value={"10"} selected>
                                   10
                                 </option>
@@ -1048,6 +1063,8 @@ const AdminDoctorPage = () => {
                                   className="bayanno-admin-doctor-search-bar"
                                   type="search"
                                   placeholder="Search"
+                                  value={searchInput}
+                                  onChange={changeSearchInput}
                                 />
                               </div>
                             </div>

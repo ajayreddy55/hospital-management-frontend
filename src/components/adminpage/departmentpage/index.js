@@ -49,10 +49,13 @@ const AdminDepartment = () => {
     apiStatus: apiConstants.initial,
   });
 
+  const [searchInput, setSearchInput] = useState("");
+  const [limitRowsValue, setLimitRowsValue] = useState(10);
+
   useEffect(() => {
     getDepartmentsList();
     //eslint-disable-next-line
-  }, []);
+  }, [searchInput, limitRowsValue]);
 
   const getDepartmentsList = async () => {
     setDepartmentsObject((prevState) => ({
@@ -61,7 +64,7 @@ const AdminDepartment = () => {
       apiStatus: apiConstants.inProgress,
     }));
 
-    const url = "http://localhost:5000/api/all-departments";
+    const url = `http://localhost:5000/api/all-departments?search=${searchInput}&limit=${limitRowsValue}`;
     const jwtToken = Cookies.get("hospital-jwt-token");
     const options = {
       method: "GET",
@@ -398,6 +401,14 @@ const AdminDepartment = () => {
     }
   };
 
+  const changeLimitRowsValue = (event) => {
+    setLimitRowsValue(event.target.value);
+  };
+
+  const changeSearchInput = (event) => {
+    setSearchInput(event.target.value);
+  };
+
   return (
     <div className="bayanno-admin-department-main-container">
       <div className="container-fluid bayanno-admin-height-container-department">
@@ -607,7 +618,11 @@ const AdminDepartment = () => {
                         <div className="row bayanno-admin-department-search-pages-container">
                           <div className="col-12 p-0 col-lg-3">
                             <div className="bayanno-admin-department-items-per-page-container">
-                              <select className="bayanno-admin-department-items-select-container">
+                              <select
+                                className="bayanno-admin-department-items-select-container"
+                                value={limitRowsValue}
+                                onChange={changeLimitRowsValue}
+                              >
                                 <option value={"10"} selected>
                                   10
                                 </option>
@@ -638,6 +653,8 @@ const AdminDepartment = () => {
                                   className="bayanno-admin-department-search-bar"
                                   type="search"
                                   placeholder="Search"
+                                  value={searchInput}
+                                  onChange={changeSearchInput}
                                 />
                               </div>
                             </div>

@@ -57,10 +57,13 @@ const AdminReceptionistPage = () => {
     apiStatus: apiConstants.initial,
   });
 
+  const [searchInput, setSearchInput] = useState("");
+  const [limitRowsValue, setLimitRowsValue] = useState(10);
+
   useEffect(() => {
     getReceptionistsList();
     //eslint-disable-next-line
-  }, []);
+  }, [searchInput, limitRowsValue]);
 
   const getReceptionistsList = async () => {
     setReceptionistsObject((prevState) => ({
@@ -69,7 +72,7 @@ const AdminReceptionistPage = () => {
       apiStatus: apiConstants.inProgress,
     }));
 
-    const url = "http://localhost:5000/api/get-all-receptionists";
+    const url = `http://localhost:5000/api/get-all-receptionists?search=${searchInput}&limit=${limitRowsValue}`;
     const jwtToken = Cookies.get("hospital-jwt-token");
     const options = {
       method: "GET",
@@ -483,6 +486,14 @@ const AdminReceptionistPage = () => {
     }
   };
 
+  const changeLimitRowsValue = (event) => {
+    setLimitRowsValue(event.target.value);
+  };
+
+  const changeSearchInput = (event) => {
+    setSearchInput(event.target.value);
+  };
+
   return (
     <div className="bayanno-admin-nplar-main-container">
       <div className="container-fluid bayanno-admin-height-container-nplar">
@@ -743,7 +754,11 @@ const AdminReceptionistPage = () => {
                         <div className="row bayanno-admin-nplar-search-pages-container">
                           <div className="col-12 p-0 col-lg-3">
                             <div className="bayanno-admin-nplar-items-per-page-container">
-                              <select className="bayanno-admin-nplar-items-select-container">
+                              <select
+                                className="bayanno-admin-nplar-items-select-container"
+                                value={limitRowsValue}
+                                onChange={changeLimitRowsValue}
+                              >
                                 <option value={"10"} selected>
                                   10
                                 </option>
@@ -774,6 +789,8 @@ const AdminReceptionistPage = () => {
                                   className="bayanno-admin-nplar-search-bar"
                                   type="search"
                                   placeholder="Search"
+                                  value={searchInput}
+                                  onChange={changeSearchInput}
                                 />
                               </div>
                             </div>
