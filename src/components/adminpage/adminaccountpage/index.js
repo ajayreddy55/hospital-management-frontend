@@ -407,16 +407,49 @@ const AdminAccountPage = () => {
       <div className="container-fluid bayanno-admin-height-container-nplar">
         <div className="row d-md-none">
           <div className="col-12 p-0">
-            <AdminNavbar />
+            <AdminNavbar
+              userName={
+                adminDetailsObject.apiStatus === apiConstants.success
+                  ? adminDetailsObject.adminDetails.name
+                  : ""
+              }
+              userEmail={
+                adminDetailsObject.apiStatus === apiConstants.success
+                  ? adminDetailsObject.adminDetails.email
+                  : ""
+              }
+            />
           </div>
         </div>
         <div className="row bayanno-admin-height-container-nplar">
           <div className="col-12 bayanno-admin-height-container-nplar d-flex p-0">
-            <AdminSidebar />
+            <AdminSidebar
+              userName={
+                adminDetailsObject.apiStatus === apiConstants.success
+                  ? adminDetailsObject.adminDetails.name
+                  : ""
+              }
+              userEmail={
+                adminDetailsObject.apiStatus === apiConstants.success
+                  ? adminDetailsObject.adminDetails.email
+                  : ""
+              }
+            />
 
             <div className="bayanno-admin-main-content-container-nplar">
               <div className="container-fluid">
-                <AdminHeader />
+                <AdminHeader
+                  userName={
+                    adminDetailsObject.apiStatus === apiConstants.success
+                      ? adminDetailsObject.adminDetails.name
+                      : ""
+                  }
+                  userEmail={
+                    adminDetailsObject.apiStatus === apiConstants.success
+                      ? adminDetailsObject.adminDetails.email
+                      : ""
+                  }
+                />
                 <div className="row mt-3 mb-2">
                   <div className="col-12">
                     <div className="d-flex align-items-center">

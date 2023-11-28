@@ -14,7 +14,8 @@ const apiConstants = {
   failure: "FAILURE",
 };
 
-const AdminSidebar = () => {
+const AdminSidebar = (props) => {
+  const { userName, userEmail } = props;
   const [isTogglerClicked, setIsTogglerClicked] = useState(false);
   const [userInfo, setUserInfo] = useState({
     user: {},
@@ -24,7 +25,7 @@ const AdminSidebar = () => {
   useEffect(() => {
     getUserDetails();
     //eslint-disable-next-line
-  }, []);
+  }, [userName, userEmail]);
 
   const getUserDetails = async () => {
     setUserInfo((prevState) => ({
@@ -109,7 +110,7 @@ const AdminSidebar = () => {
                 <p className="bayanno-admin-sidebar-profile-name">
                   {userInfo.apiStatus === apiConstants.success
                     ? userInfo.user.name
-                    : "Admin"}
+                    : ""}
                 </p>
               </div>
             </div>

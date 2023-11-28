@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Popup from "reactjs-popup";
+// import Popup from "reactjs-popup";
 import bayannoHospitalLogo from "../../assets/bayanno-hospital-logo.png";
 import "reactjs-popup/dist/index.css";
 import { Tooltip } from "react-tooltip";
@@ -33,7 +33,9 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
-          <Link className="nav-link active navbar-link-item">HOME</Link>
+          <Link className="nav-link navbar-link-item" to={"/bayanno/home"}>
+            HOME
+          </Link>
           <div className="nav-link nav-link-departments">
             <button
               type="button"
@@ -50,9 +52,22 @@ const Navbar = () => {
               opacity={1}
             >
               <div className="navbar-tooltip-dep-container">
-                <Link className="navbar-dep-link-item">Anesthetics</Link>
-                <Link className="navbar-dep-link-item mt-2">Cardiology</Link>
-                <Link className="navbar-dep-link-item mt-2">
+                <Link
+                  className="navbar-dep-link-item"
+                  to={"/bayanno/home/departments/1"}
+                >
+                  Anesthetics
+                </Link>
+                <Link
+                  className="navbar-dep-link-item mt-2"
+                  to={"/bayanno/home/departments/2"}
+                >
+                  Cardiology
+                </Link>
+                <Link
+                  className="navbar-dep-link-item mt-2"
+                  to={"/bayanno/home/departments/3"}
+                >
                   Gastroenterology
                 </Link>
               </div>
@@ -77,7 +92,12 @@ const Navbar = () => {
               </div>
             </Popup> */}
           </div>
-          <Link className="nav-link navbar-link-item">DOCTORS</Link>
+          <Link
+            className="nav-link navbar-link-item"
+            to={"/bayanno/home/doctors/0"}
+          >
+            DOCTORS
+          </Link>
           <Link className="nav-link navbar-link-item">ABOUT</Link>
           <Link className="nav-link navbar-link-item">APPOINTMENT</Link>
           <Link className="nav-link navbar-link-item">BLOG</Link>

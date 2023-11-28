@@ -11,7 +11,8 @@ const apiConstants = {
   failure: "FAILURE",
 };
 
-const AdminHeader = () => {
+const AdminHeader = (props) => {
+  const { userName, userEmail } = props;
   const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState({
@@ -22,7 +23,7 @@ const AdminHeader = () => {
   useEffect(() => {
     getUserDetails();
     //eslint-disable-next-line
-  }, []);
+  }, [userName, userEmail]);
 
   const getUserDetails = async () => {
     setUserInfo((prevState) => ({
@@ -80,7 +81,7 @@ const AdminHeader = () => {
             <span className="bayanno-admin-header-profile-text">
               {userInfo.apiStatus === apiConstants.success
                 ? userInfo.user.name
-                : "Admin"}
+                : ""}
             </span>
           </Link>
           <div className="d-flex align-items-center mt-2">

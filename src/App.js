@@ -16,6 +16,8 @@ import AdminLaboratoristPage from "./components/adminpage/laboratoristmainpage/l
 import AdminAccountantPage from "./components/adminpage/accountantmainpage/accountantpage";
 import AdminReceptionistPage from "./components/adminpage/receptionistmainpage/receptionistpage";
 import AdminAccountPage from "./components/adminpage/adminaccountpage";
+import BayannoDepartmentsPage from "./components/bayannodeparments";
+import BayannoDoctorsPage from "./components/bayannodoctors";
 
 const App = () => {
   return (
@@ -28,6 +30,16 @@ const App = () => {
       <Route exact path="/bayanno/home" element={<BayannoHome />} />
       <Route exact path="/bayanno/login" element={<BayannoLogin />} />
       <Route exact path="/bayanno/signup" element={<BayannoSignUp />} />
+      <Route
+        exact
+        path="/bayanno/home/departments/:id"
+        element={<BayannoDepartmentsPage />}
+      />
+      <Route
+        exact
+        path="/bayanno/home/doctors/:id"
+        element={<BayannoDoctorsPage />}
+      />
       <Route element={<ProtectedRoute />}>
         <Route
           exact

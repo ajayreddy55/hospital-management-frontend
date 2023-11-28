@@ -14,7 +14,8 @@ const apiConstants = {
   failure: "FAILURE",
 };
 
-const AdminNavbar = () => {
+const AdminNavbar = (props) => {
+  const { userName, userEmail } = props;
   const [userInfo, setUserInfo] = useState({
     user: {},
     apiStatus: apiConstants.initial,
@@ -23,7 +24,7 @@ const AdminNavbar = () => {
   useEffect(() => {
     getUserDetails();
     //eslint-disable-next-line
-  }, []);
+  }, [userName, userEmail]);
 
   const getUserDetails = async () => {
     setUserInfo((prevState) => ({
@@ -93,7 +94,7 @@ const AdminNavbar = () => {
               <p className="bayanno-admin-navbar-profile-name">
                 {userInfo.apiStatus === apiConstants.success
                   ? userInfo.user.name
-                  : "Admin"}
+                  : ""}
               </p>
             </div>
           </div>
