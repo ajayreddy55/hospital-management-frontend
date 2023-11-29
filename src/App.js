@@ -18,6 +18,11 @@ import AdminReceptionistPage from "./components/adminpage/receptionistmainpage/r
 import AdminAccountPage from "./components/adminpage/adminaccountpage";
 import BayannoDepartmentsPage from "./components/bayannodeparments";
 import BayannoDoctorsPage from "./components/bayannodoctors";
+import BayannoAboutUsPage from "./components/bayannoaboutus";
+import BayannoAppointmentPage from "./components/bayannoappointment";
+import BayannoBlogsPage from "./components/bayannoblogs";
+import BayannoBlogDetailsPage from "./components/bayannoblogdetails";
+import BayannoContactPage from "./components/bayannocontact";
 
 const App = () => {
   return (
@@ -39,6 +44,27 @@ const App = () => {
         exact
         path="/bayanno/home/doctors/:id"
         element={<BayannoDoctorsPage />}
+      />
+      <Route
+        exact
+        path="/bayanno/home/about"
+        element={<BayannoAboutUsPage />}
+      />
+      <Route
+        exact
+        path="/bayanno/home/appointment"
+        element={<BayannoAppointmentPage />}
+      />
+      <Route exact path="/bayanno/home/blogs" element={<BayannoBlogsPage />} />
+      <Route
+        exact
+        path="/bayanno/home/blogs-details/:id"
+        element={<BayannoBlogDetailsPage />}
+      />
+      <Route
+        exact
+        path="/bayanno/home/contact"
+        element={<BayannoContactPage />}
       />
       <Route element={<ProtectedRoute />}>
         <Route

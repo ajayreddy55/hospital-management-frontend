@@ -1,0 +1,115 @@
+.bayanno-blogs-bg-container {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../assets/doctors-home-bg.jpg");
+  height: 100vh;
+  background-size: cover;
+}
+
+.bayanno-blogs-inner-bg-container {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.bayanno-blogs-content-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bayanno-common-home-heading-container {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.bayanno-common-home-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.bayanno-common-home-heading-second {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 11px;
+}
+
+.bayanno-blogs-main-section {
+  background-color: #ffffff;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.bayanno-blogs-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 9px;
+  min-height: 120px;
+  min-width: 120px;
+}
+
+.bayanno-blogs-card-heading {
+  font-weight: 600;
+  font-size: 29px;
+  color: #111111;
+  margin-top: 12px;
+}
+
+.bayanno-blogs-card-text {
+  font-size: 16px;
+  color: #55595c;
+  margin-top: 11px;
+}
+
+.bayanno-blogs-card-hr-line {
+  border: 1px solid #e0eded;
+  border-radius: 1px;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.bayanno-blogs-card-date-container {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #818a91;
+  display: flex;
+  align-items: center;
+}
+
+.bayanno-blogs-card-read-more-container {
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: #0087be;
+  display: flex;
+  align-items: center;
+}
+
+.bayanno-blogs-card-read-more-container:hover {
+  color: rgb(146, 7, 7);
+  text-decoration: none;
+}
+
+.bayanno-blogs-card-read-more-container:hover span {
+  text-decoration: underline;
+}

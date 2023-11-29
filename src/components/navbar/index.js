@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import Popup from "reactjs-popup";
 import bayannoHospitalLogo from "../../assets/bayanno-hospital-logo.png";
 import "reactjs-popup/dist/index.css";
@@ -8,6 +8,8 @@ import "react-tooltip/dist/react-tooltip.css";
 import "./index.css";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <nav className="navbar navbar-expand-lg  navbar-light bg-light navbar-bg-color">
       <Link className="navbar-brand">
@@ -33,7 +35,12 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
-          <Link className="nav-link navbar-link-item" to={"/bayanno/home"}>
+          <Link
+            className={`nav-link navbar-link-item ${
+              location.pathname === "/bayanno/home" ? "active" : ""
+            }`}
+            to={"/bayanno/home"}
+          >
             HOME
           </Link>
           <div className="nav-link nav-link-departments">
@@ -93,15 +100,45 @@ const Navbar = () => {
             </Popup> */}
           </div>
           <Link
-            className="nav-link navbar-link-item"
+            className={`nav-link navbar-link-item ${
+              location.pathname === "/bayanno/home/doctors/0" ? "active" : ""
+            }`}
             to={"/bayanno/home/doctors/0"}
           >
             DOCTORS
           </Link>
-          <Link className="nav-link navbar-link-item">ABOUT</Link>
-          <Link className="nav-link navbar-link-item">APPOINTMENT</Link>
-          <Link className="nav-link navbar-link-item">BLOG</Link>
-          <Link className="nav-link navbar-link-item">CONTACT</Link>
+          <Link
+            className={`nav-link navbar-link-item ${
+              location.pathname === "/bayanno/home/about" ? "active" : ""
+            }`}
+            to={"/bayanno/home/about"}
+          >
+            ABOUT
+          </Link>
+          <Link
+            className={`nav-link navbar-link-item ${
+              location.pathname === "/bayanno/home/appointment" ? "active" : ""
+            }`}
+            to={"/bayanno/home/appointment"}
+          >
+            APPOINTMENT
+          </Link>
+          <Link
+            className={`nav-link navbar-link-item ${
+              location.pathname === "/bayanno/home/blogs" ? "active" : ""
+            }`}
+            to={"/bayanno/home/blogs"}
+          >
+            BLOG
+          </Link>
+          <Link
+            className={`nav-link navbar-link-item ${
+              location.pathname === "/bayanno/home/contact" ? "active" : ""
+            }`}
+            to={"/bayanno/home/contact"}
+          >
+            CONTACT
+          </Link>
           <Link
             className="nav-link navbar-link-item"
             to={"/bayanno/login"}

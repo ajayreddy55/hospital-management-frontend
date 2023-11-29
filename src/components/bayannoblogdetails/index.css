@@ -1,0 +1,80 @@
+.bayanno-blog-details-bg-container {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.bayanno-blog-details-inner-bg-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bayanno-blog-details-content-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bayanno-blog-details-heading-container {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: rgb(19, 19, 19);
+}
+
+.bayanno-blog-details-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.bayanno-blog-details-description-main {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 16px;
+  line-height: 1.2;
+}
+
+.bayanno-blog-details-main-section {
+  background-color: #ffffff;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.bayanno-blog-details-date-container {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.bayanno-blog-details-description-text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #55595c;
+  line-height: 1.3;
+  margin-top: 12px;
+}
+
+.bayanno-blog-details-description-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 32px;
+  color: #55595c;
+  line-height: 1.3;
+  margin-top: 18px;
+  font-weight: 600;
+}
