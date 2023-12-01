@@ -119,7 +119,7 @@ const AdminDoctorPage = () => {
   };
 
   const getDepartmentsList = async () => {
-    const url = "http://localhost:5000/api/all-departments";
+    const url = "http://localhost:5000/api/all-departments?search=&limit";
     const jwtToken = Cookies.get("hospital-jwt-token");
     const options = {
       method: "GET",
